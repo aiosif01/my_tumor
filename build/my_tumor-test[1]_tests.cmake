@@ -1,0 +1,5 @@
+add_test( UtilTest.NumberTest /home/ale/biodynamo-v1.05.125/demo/my_tumor/build/my_tumor-test [==[--gtest_filter=UtilTest.NumberTest]==] --gtest_also_run_disabled_tests)
+set_tests_properties( UtilTest.NumberTest PROPERTIES WORKING_DIRECTORY /home/ale/biodynamo-v1.05.125/demo/my_tumor/build SKIP_REGULAR_EXPRESSION [==[\[  SKIPPED \]]==])
+add_test( AgentTest.AddAgentsToSimulation /home/ale/biodynamo-v1.05.125/demo/my_tumor/build/my_tumor-test [==[--gtest_filter=AgentTest.AddAgentsToSimulation]==] --gtest_also_run_disabled_tests)
+set_tests_properties( AgentTest.AddAgentsToSimulation PROPERTIES WORKING_DIRECTORY /home/ale/biodynamo-v1.05.125/demo/my_tumor/build SKIP_REGULAR_EXPRESSION [==[\[  SKIPPED \]]==])
+set( my_tumor-test_TESTS UtilTest.NumberTest AgentTest.AddAgentsToSimulation)
