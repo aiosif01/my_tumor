@@ -160,7 +160,7 @@ inline int Simulate(int argc, const char** argv) {
   }
 
   // Create multiple tumor cells
-  size_t nb_of_tumor_cells = 10; // Change this number to adjust how many tumor cells to create
+  size_t nb_of_tumor_cells = 3; // Change this number to adjust how many tumor cells to create
 
   // Create tumor cells in random positions clustered near center
   for (size_t i = 0; i < nb_of_tumor_cells; ++i) {
