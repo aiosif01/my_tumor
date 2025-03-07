@@ -62,10 +62,10 @@ RM = /usr/local/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/ale/biodynamo-v1.05.125/demo/my_tumor
+CMAKE_SOURCE_DIR = /home/ale/my_tumor
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/ale/biodynamo-v1.05.125/demo/my_tumor/build
+CMAKE_BINARY_DIR = /home/ale/my_tumor/build
 
 # Utility rule file for format-all.
 
@@ -73,8 +73,8 @@ CMAKE_BINARY_DIR = /home/ale/biodynamo-v1.05.125/demo/my_tumor/build
 include CMakeFiles/format-all.dir/progress.make
 
 CMakeFiles/format-all:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/ale/biodynamo-v1.05.125/demo/my_tumor/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Run clang-format on selected files and update them in-place"
-	cd /home/ale/biodynamo-v1.05.125/demo/my_tumor && /home/ale/biodynamo-v1.05.125/share/util/run-clang-format.sh /home/ale/biodynamo-v1.05.125/demo/my_tumor /usr/bin/clang-format 1 `/home/ale/biodynamo-v1.05.125/share/util/get-all-src-files.sh /home/ale/biodynamo-v1.05.125/demo/my_tumor`
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/ale/my_tumor/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Run clang-format on selected files and update them in-place"
+	cd /home/ale/my_tumor && /home/ale/biodynamo-v1.05.125/share/util/run-clang-format.sh /home/ale/my_tumor /usr/bin/clang-format 1 `/home/ale/biodynamo-v1.05.125/share/util/get-all-src-files.sh /home/ale/my_tumor`
 
 format-all: CMakeFiles/format-all
 format-all: CMakeFiles/format-all.dir/build.make
@@ -91,6 +91,6 @@ CMakeFiles/format-all.dir/clean:
 .PHONY : CMakeFiles/format-all.dir/clean
 
 CMakeFiles/format-all.dir/depend:
-	cd /home/ale/biodynamo-v1.05.125/demo/my_tumor/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/ale/biodynamo-v1.05.125/demo/my_tumor /home/ale/biodynamo-v1.05.125/demo/my_tumor /home/ale/biodynamo-v1.05.125/demo/my_tumor/build /home/ale/biodynamo-v1.05.125/demo/my_tumor/build /home/ale/biodynamo-v1.05.125/demo/my_tumor/build/CMakeFiles/format-all.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/ale/my_tumor/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/ale/my_tumor /home/ale/my_tumor /home/ale/my_tumor/build /home/ale/my_tumor/build /home/ale/my_tumor/build/CMakeFiles/format-all.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/format-all.dir/depend
 

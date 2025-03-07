@@ -62,10 +62,10 @@ RM = /usr/local/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/ale/biodynamo-v1.05.125/demo/my_tumor
+CMAKE_SOURCE_DIR = /home/ale/my_tumor
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/ale/biodynamo-v1.05.125/demo/my_tumor/build
+CMAKE_BINARY_DIR = /home/ale/my_tumor/build
 
 # Utility rule file for check-submission.
 
@@ -73,8 +73,8 @@ CMAKE_BINARY_DIR = /home/ale/biodynamo-v1.05.125/demo/my_tumor/build
 include CMakeFiles/check-submission.dir/progress.make
 
 CMakeFiles/check-submission:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/ale/biodynamo-v1.05.125/demo/my_tumor/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "check-submission will build, run all tests, check formatting, code style, and generate documentation and coverage report"
-	/home/ale/biodynamo-v1.05.125/share/util/check-submission.sh /home/ale/biodynamo-v1.05.125/demo/my_tumor/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/ale/my_tumor/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "check-submission will build, run all tests, check formatting, code style, and generate documentation and coverage report"
+	/home/ale/biodynamo-v1.05.125/share/util/check-submission.sh /home/ale/my_tumor/build
 
 check-submission: CMakeFiles/check-submission
 check-submission: CMakeFiles/check-submission.dir/build.make
@@ -91,6 +91,6 @@ CMakeFiles/check-submission.dir/clean:
 .PHONY : CMakeFiles/check-submission.dir/clean
 
 CMakeFiles/check-submission.dir/depend:
-	cd /home/ale/biodynamo-v1.05.125/demo/my_tumor/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/ale/biodynamo-v1.05.125/demo/my_tumor /home/ale/biodynamo-v1.05.125/demo/my_tumor /home/ale/biodynamo-v1.05.125/demo/my_tumor/build /home/ale/biodynamo-v1.05.125/demo/my_tumor/build /home/ale/biodynamo-v1.05.125/demo/my_tumor/build/CMakeFiles/check-submission.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/ale/my_tumor/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/ale/my_tumor /home/ale/my_tumor /home/ale/my_tumor/build /home/ale/my_tumor/build /home/ale/my_tumor/build/CMakeFiles/check-submission.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/check-submission.dir/depend
 

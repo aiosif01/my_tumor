@@ -62,10 +62,10 @@ RM = /usr/local/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/ale/biodynamo-v1.05.125/demo/my_tumor
+CMAKE_SOURCE_DIR = /home/ale/my_tumor
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/ale/biodynamo-v1.05.125/demo/my_tumor/build
+CMAKE_BINARY_DIR = /home/ale/my_tumor/build
 
 # Utility rule file for fetch-master.
 
@@ -73,9 +73,9 @@ CMAKE_BINARY_DIR = /home/ale/biodynamo-v1.05.125/demo/my_tumor/build
 include CMakeFiles/fetch-master.dir/progress.make
 
 CMakeFiles/fetch-master:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/ale/biodynamo-v1.05.125/demo/my_tumor/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Fetch latest changes from origin master. If you forked the project,"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/ale/my_tumor/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Fetch latest changes from origin master. If you forked the project,"
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold "       make sure that it is synchronized with the biodynamo repository!"
-	cd /home/ale/biodynamo-v1.05.125/demo/my_tumor && git fetch origin master
+	cd /home/ale/my_tumor && git fetch origin master
 
 fetch-master: CMakeFiles/fetch-master
 fetch-master: CMakeFiles/fetch-master.dir/build.make
@@ -92,6 +92,6 @@ CMakeFiles/fetch-master.dir/clean:
 .PHONY : CMakeFiles/fetch-master.dir/clean
 
 CMakeFiles/fetch-master.dir/depend:
-	cd /home/ale/biodynamo-v1.05.125/demo/my_tumor/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/ale/biodynamo-v1.05.125/demo/my_tumor /home/ale/biodynamo-v1.05.125/demo/my_tumor /home/ale/biodynamo-v1.05.125/demo/my_tumor/build /home/ale/biodynamo-v1.05.125/demo/my_tumor/build /home/ale/biodynamo-v1.05.125/demo/my_tumor/build/CMakeFiles/fetch-master.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/ale/my_tumor/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/ale/my_tumor /home/ale/my_tumor /home/ale/my_tumor/build /home/ale/my_tumor/build /home/ale/my_tumor/build/CMakeFiles/fetch-master.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/fetch-master.dir/depend
 

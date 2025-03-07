@@ -62,10 +62,10 @@ RM = /usr/local/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/ale/biodynamo-v1.05.125/demo/my_tumor
+CMAKE_SOURCE_DIR = /home/ale/my_tumor
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/ale/biodynamo-v1.05.125/demo/my_tumor/build
+CMAKE_BINARY_DIR = /home/ale/my_tumor/build
 
 # Utility rule file for fix-submission.
 
@@ -73,9 +73,9 @@ CMAKE_BINARY_DIR = /home/ale/biodynamo-v1.05.125/demo/my_tumor/build
 include CMakeFiles/fix-submission.dir/progress.make
 
 CMakeFiles/fix-submission:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/ale/biodynamo-v1.05.125/demo/my_tumor/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "fix-submission will attempt to fix the reported issues using clang-format and clang-tidy."
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/ale/my_tumor/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "fix-submission will attempt to fix the reported issues using clang-format and clang-tidy."
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold "             Failing tests and issues from cpplint must be fixed manually."
-	/home/ale/biodynamo-v1.05.125/share/util/fix-submission.sh /home/ale/biodynamo-v1.05.125/demo/my_tumor/build
+	/home/ale/biodynamo-v1.05.125/share/util/fix-submission.sh /home/ale/my_tumor/build
 
 fix-submission: CMakeFiles/fix-submission
 fix-submission: CMakeFiles/fix-submission.dir/build.make
@@ -92,6 +92,6 @@ CMakeFiles/fix-submission.dir/clean:
 .PHONY : CMakeFiles/fix-submission.dir/clean
 
 CMakeFiles/fix-submission.dir/depend:
-	cd /home/ale/biodynamo-v1.05.125/demo/my_tumor/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/ale/biodynamo-v1.05.125/demo/my_tumor /home/ale/biodynamo-v1.05.125/demo/my_tumor /home/ale/biodynamo-v1.05.125/demo/my_tumor/build /home/ale/biodynamo-v1.05.125/demo/my_tumor/build /home/ale/biodynamo-v1.05.125/demo/my_tumor/build/CMakeFiles/fix-submission.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/ale/my_tumor/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/ale/my_tumor /home/ale/my_tumor /home/ale/my_tumor/build /home/ale/my_tumor/build /home/ale/my_tumor/build/CMakeFiles/fix-submission.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/fix-submission.dir/depend
 

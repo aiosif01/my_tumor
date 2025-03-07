@@ -1,6 +1,6 @@
 // Do NOT change. Changes will be lost next time file is generated
 
-#define R__DICTIONARY_FILENAME dIhomedIaledIbiodynamomIv1dO05dO125dIdemodImy_tumordIbuilddIlibmy_tumor_dict
+#define R__DICTIONARY_FILENAME dIhomedIaledImy_tumordIbuilddIlibmy_tumor_dict
 #define R__NO_DEPRECATION
 
 /*******************************************************************/
@@ -35,8 +35,8 @@
 #include "TDataMember.h"
 
 // Header files passed as explicit arguments
-#include "/home/ale/biodynamo-v1.05.125/demo/my_tumor/src/brownian.h"
-#include "/home/ale/biodynamo-v1.05.125/demo/my_tumor/src/my_tumor.h"
+#include "/home/ale/my_tumor/src/brownian.h"
+#include "/home/ale/my_tumor/src/my_tumor.h"
 
 // Header files passed via #pragma extra_include
 
@@ -3016,8 +3016,8 @@ inline int Simulate(int argc, const char** argv) {
   auto* myrand = simulation.GetRandom();
 
   // Set Brownian motion parameters
-  double tumor_diffusion = 0.5;    // Diffusion coefficient for tumor cells
-  double healthy_diffusion = 0.1;  // Diffusion coefficient for healthy cells
+  double tumor_diffusion = 0.75;    // Diffusion coefficient for tumor cells
+  double healthy_diffusion = 0.45;  // Diffusion coefficient for healthy cells
 
   // Create a population of healthy cells
   size_t nb_of_healthy_cells = 100;
@@ -3039,7 +3039,7 @@ inline int Simulate(int argc, const char** argv) {
   }
 
   // Create multiple tumor cells
-  size_t nb_of_tumor_cells = 3; // Change this number to adjust how many tumor cells to create
+  size_t nb_of_tumor_cells = 10; // Change this number to adjust how many tumor cells to create
 
   // Create tumor cells in random positions clustered near center
   for (size_t i = 0; i < nb_of_tumor_cells; ++i) {
@@ -3063,7 +3063,7 @@ inline int Simulate(int argc, const char** argv) {
   }
 
   // Run the simulation for 100 time steps
-  simulation.GetScheduler()->Simulate(100);
+  simulation.GetScheduler()->Simulate(300);
 
   // Count cells at the end
   size_t healthy_count = 0;

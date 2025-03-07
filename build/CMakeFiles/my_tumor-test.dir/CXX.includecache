@@ -6,16 +6,6 @@
 
 #IncludeRegexTransform: 
 
-/home/ale/biodynamo-v1.05.125/demo/my_tumor/test/test-main.cc
-gtest/gtest.h
--
-
-/home/ale/biodynamo-v1.05.125/demo/my_tumor/test/test-suite.cc
-gtest/gtest.h
--
-biodynamo.h
-/home/ale/biodynamo-v1.05.125/demo/my_tumor/test/biodynamo.h
-
 /home/ale/biodynamo-v1.05.125/include/bdm_version.h
 cstdint
 -
@@ -2825,6 +2815,16 @@ ROOT/RConfig.hxx
 -
 cstring
 -
+
+/home/ale/my_tumor/test/test-main.cc
+gtest/gtest.h
+-
+
+/home/ale/my_tumor/test/test-suite.cc
+gtest/gtest.h
+-
+biodynamo.h
+/home/ale/my_tumor/test/biodynamo.h
 
 omp/omp.h
 

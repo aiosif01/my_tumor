@@ -1,4 +1,4 @@
-# Install script for directory: /home/ale/biodynamo-v1.05.125/demo/my_tumor
+# Install script for directory: /home/ale/my_tumor
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -50,5 +50,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/ale/biodynamo-v1.05.125/demo/my_tumor/build/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/ale/my_tumor/build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

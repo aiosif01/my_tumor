@@ -62,10 +62,10 @@ RM = /usr/local/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/ale/biodynamo-v1.05.125/demo/my_tumor
+CMAKE_SOURCE_DIR = /home/ale/my_tumor
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/ale/biodynamo-v1.05.125/demo/my_tumor/build
+CMAKE_BINARY_DIR = /home/ale/my_tumor/build
 
 # Include any dependencies generated for this target.
 include CMakeFiles/my_tumor.dir/depend.make
@@ -79,8 +79,8 @@ include CMakeFiles/my_tumor.dir/flags.make
 libmy_tumor_dict.cc: ../src/brownian.h
 libmy_tumor_dict.cc: ../src/my_tumor.h
 libmy_tumor_dict.cc: /home/ale/biodynamo-v1.05.125/share/cmake/selection.xml
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/ale/biodynamo-v1.05.125/demo/my_tumor/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating libmy_tumor_dict.cc, libmy_tumor_dict_rdict.pcm"
-	/home/ale/biodynamo-v1.05.125/third_party/root/bin/genreflex /home/ale/biodynamo-v1.05.125/demo/my_tumor/src/brownian.h /home/ale/biodynamo-v1.05.125/demo/my_tumor/src/my_tumor.h -o /home/ale/biodynamo-v1.05.125/demo/my_tumor/build/libmy_tumor_dict.cc --select=/home/ale/biodynamo-v1.05.125/share/cmake/selection.xml --noIncludePaths -I/usr/lib/x86_64-linux-gnu/openmpi/include -I/usr/lib/x86_64-linux-gnu/openmpi/include/openmpi -I/usr/include -I/home/ale/biodynamo-v1.05.125/third_party/root/include -I/home/ale/biodynamo-v1.05.125/demo/my_tumor/build/omp -I/home/ale/biodynamo-v1.05.125/include -I/home/ale/biodynamo-v1.05.125/include/optim -I/home/ale/biodynamo-v1.05.125/demo/my_tumor/src -DBDMSYS="/home/ale/biodynamo-v1.05.125" -DUSE_MPI -DUSE_NUMA -DUSE_DICT
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/ale/my_tumor/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating libmy_tumor_dict.cc, libmy_tumor_dict_rdict.pcm"
+	/home/ale/biodynamo-v1.05.125/third_party/root/bin/genreflex /home/ale/my_tumor/src/brownian.h /home/ale/my_tumor/src/my_tumor.h -o /home/ale/my_tumor/build/libmy_tumor_dict.cc --select=/home/ale/biodynamo-v1.05.125/share/cmake/selection.xml --noIncludePaths -I/usr/lib/x86_64-linux-gnu/openmpi/include -I/usr/lib/x86_64-linux-gnu/openmpi/include/openmpi -I/usr/include -I/home/ale/biodynamo-v1.05.125/third_party/root/include -I/home/ale/my_tumor/build/omp -I/home/ale/biodynamo-v1.05.125/include -I/home/ale/biodynamo-v1.05.125/include/optim -I/home/ale/my_tumor/src -DBDMSYS="/home/ale/biodynamo-v1.05.125" -DUSE_MPI -DUSE_NUMA -DUSE_DICT
 
 libmy_tumor_dict_rdict.pcm: libmy_tumor_dict.cc
 	@$(CMAKE_COMMAND) -E touch_nocreate libmy_tumor_dict_rdict.pcm
@@ -88,47 +88,47 @@ libmy_tumor_dict_rdict.pcm: libmy_tumor_dict.cc
 libmy_tumor_bdm_dict.cc: ../src/brownian.h
 libmy_tumor_bdm_dict.cc: ../src/my_tumor.h
 libmy_tumor_bdm_dict.cc: /home/ale/biodynamo-v1.05.125/bin/bdm-dictionary
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/ale/biodynamo-v1.05.125/demo/my_tumor/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating libmy_tumor_bdm_dict.cc"
-	/home/ale/biodynamo-v1.05.125/bin/bdm-dictionary --out-of-source --output /home/ale/biodynamo-v1.05.125/demo/my_tumor/build/libmy_tumor_bdm_dict.cc --include-dirs /usr/lib/x86_64-linux-gnu/openmpi/include /usr/lib/x86_64-linux-gnu/openmpi/include/openmpi /usr/include /home/ale/biodynamo-v1.05.125/third_party/root/include /home/ale/biodynamo-v1.05.125/demo/my_tumor/build/omp /home/ale/biodynamo-v1.05.125/include /home/ale/biodynamo-v1.05.125/include/optim /home/ale/biodynamo-v1.05.125/demo/my_tumor/src --headers /home/ale/biodynamo-v1.05.125/demo/my_tumor/src/brownian.h /home/ale/biodynamo-v1.05.125/demo/my_tumor/src/my_tumor.h
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/ale/my_tumor/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating libmy_tumor_bdm_dict.cc"
+	/home/ale/biodynamo-v1.05.125/bin/bdm-dictionary --out-of-source --output /home/ale/my_tumor/build/libmy_tumor_bdm_dict.cc --include-dirs /usr/lib/x86_64-linux-gnu/openmpi/include /usr/lib/x86_64-linux-gnu/openmpi/include/openmpi /usr/include /home/ale/biodynamo-v1.05.125/third_party/root/include /home/ale/my_tumor/build/omp /home/ale/biodynamo-v1.05.125/include /home/ale/biodynamo-v1.05.125/include/optim /home/ale/my_tumor/src --headers /home/ale/my_tumor/src/brownian.h /home/ale/my_tumor/src/my_tumor.h
 
 CMakeFiles/my_tumor.dir/src/my_tumor.cc.o: CMakeFiles/my_tumor.dir/flags.make
 CMakeFiles/my_tumor.dir/src/my_tumor.cc.o: ../src/my_tumor.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ale/biodynamo-v1.05.125/demo/my_tumor/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/my_tumor.dir/src/my_tumor.cc.o"
-	/usr/bin/mpicxx $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/my_tumor.dir/src/my_tumor.cc.o -c /home/ale/biodynamo-v1.05.125/demo/my_tumor/src/my_tumor.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ale/my_tumor/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/my_tumor.dir/src/my_tumor.cc.o"
+	/usr/bin/mpicxx $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/my_tumor.dir/src/my_tumor.cc.o -c /home/ale/my_tumor/src/my_tumor.cc
 
 CMakeFiles/my_tumor.dir/src/my_tumor.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/my_tumor.dir/src/my_tumor.cc.i"
-	/usr/bin/mpicxx $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ale/biodynamo-v1.05.125/demo/my_tumor/src/my_tumor.cc > CMakeFiles/my_tumor.dir/src/my_tumor.cc.i
+	/usr/bin/mpicxx $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ale/my_tumor/src/my_tumor.cc > CMakeFiles/my_tumor.dir/src/my_tumor.cc.i
 
 CMakeFiles/my_tumor.dir/src/my_tumor.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/my_tumor.dir/src/my_tumor.cc.s"
-	/usr/bin/mpicxx $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ale/biodynamo-v1.05.125/demo/my_tumor/src/my_tumor.cc -o CMakeFiles/my_tumor.dir/src/my_tumor.cc.s
+	/usr/bin/mpicxx $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ale/my_tumor/src/my_tumor.cc -o CMakeFiles/my_tumor.dir/src/my_tumor.cc.s
 
 CMakeFiles/my_tumor.dir/libmy_tumor_dict.cc.o: CMakeFiles/my_tumor.dir/flags.make
 CMakeFiles/my_tumor.dir/libmy_tumor_dict.cc.o: libmy_tumor_dict.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ale/biodynamo-v1.05.125/demo/my_tumor/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/my_tumor.dir/libmy_tumor_dict.cc.o"
-	/usr/bin/mpicxx $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/my_tumor.dir/libmy_tumor_dict.cc.o -c /home/ale/biodynamo-v1.05.125/demo/my_tumor/build/libmy_tumor_dict.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ale/my_tumor/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/my_tumor.dir/libmy_tumor_dict.cc.o"
+	/usr/bin/mpicxx $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/my_tumor.dir/libmy_tumor_dict.cc.o -c /home/ale/my_tumor/build/libmy_tumor_dict.cc
 
 CMakeFiles/my_tumor.dir/libmy_tumor_dict.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/my_tumor.dir/libmy_tumor_dict.cc.i"
-	/usr/bin/mpicxx $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ale/biodynamo-v1.05.125/demo/my_tumor/build/libmy_tumor_dict.cc > CMakeFiles/my_tumor.dir/libmy_tumor_dict.cc.i
+	/usr/bin/mpicxx $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ale/my_tumor/build/libmy_tumor_dict.cc > CMakeFiles/my_tumor.dir/libmy_tumor_dict.cc.i
 
 CMakeFiles/my_tumor.dir/libmy_tumor_dict.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/my_tumor.dir/libmy_tumor_dict.cc.s"
-	/usr/bin/mpicxx $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ale/biodynamo-v1.05.125/demo/my_tumor/build/libmy_tumor_dict.cc -o CMakeFiles/my_tumor.dir/libmy_tumor_dict.cc.s
+	/usr/bin/mpicxx $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ale/my_tumor/build/libmy_tumor_dict.cc -o CMakeFiles/my_tumor.dir/libmy_tumor_dict.cc.s
 
 CMakeFiles/my_tumor.dir/libmy_tumor_bdm_dict.cc.o: CMakeFiles/my_tumor.dir/flags.make
 CMakeFiles/my_tumor.dir/libmy_tumor_bdm_dict.cc.o: libmy_tumor_bdm_dict.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ale/biodynamo-v1.05.125/demo/my_tumor/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/my_tumor.dir/libmy_tumor_bdm_dict.cc.o"
-	/usr/bin/mpicxx $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/my_tumor.dir/libmy_tumor_bdm_dict.cc.o -c /home/ale/biodynamo-v1.05.125/demo/my_tumor/build/libmy_tumor_bdm_dict.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ale/my_tumor/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/my_tumor.dir/libmy_tumor_bdm_dict.cc.o"
+	/usr/bin/mpicxx $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/my_tumor.dir/libmy_tumor_bdm_dict.cc.o -c /home/ale/my_tumor/build/libmy_tumor_bdm_dict.cc
 
 CMakeFiles/my_tumor.dir/libmy_tumor_bdm_dict.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/my_tumor.dir/libmy_tumor_bdm_dict.cc.i"
-	/usr/bin/mpicxx $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ale/biodynamo-v1.05.125/demo/my_tumor/build/libmy_tumor_bdm_dict.cc > CMakeFiles/my_tumor.dir/libmy_tumor_bdm_dict.cc.i
+	/usr/bin/mpicxx $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ale/my_tumor/build/libmy_tumor_bdm_dict.cc > CMakeFiles/my_tumor.dir/libmy_tumor_bdm_dict.cc.i
 
 CMakeFiles/my_tumor.dir/libmy_tumor_bdm_dict.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/my_tumor.dir/libmy_tumor_bdm_dict.cc.s"
-	/usr/bin/mpicxx $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ale/biodynamo-v1.05.125/demo/my_tumor/build/libmy_tumor_bdm_dict.cc -o CMakeFiles/my_tumor.dir/libmy_tumor_bdm_dict.cc.s
+	/usr/bin/mpicxx $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ale/my_tumor/build/libmy_tumor_bdm_dict.cc -o CMakeFiles/my_tumor.dir/libmy_tumor_bdm_dict.cc.s
 
 # Object files for target my_tumor
 my_tumor_OBJECTS = \
@@ -189,7 +189,7 @@ libmy_tumor.so: /home/ale/biodynamo-v1.05.125/third_party/root/lib/libGeom.so
 libmy_tumor.so: /home/ale/biodynamo-v1.05.125/third_party/root/lib/libGui.so
 libmy_tumor.so: /home/ale/biodynamo-v1.05.125/third_party/root/lib/libGenVector.so
 libmy_tumor.so: CMakeFiles/my_tumor.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/ale/biodynamo-v1.05.125/demo/my_tumor/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Linking CXX shared library libmy_tumor.so"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/ale/my_tumor/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Linking CXX shared library libmy_tumor.so"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/my_tumor.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -204,6 +204,6 @@ CMakeFiles/my_tumor.dir/clean:
 CMakeFiles/my_tumor.dir/depend: libmy_tumor_bdm_dict.cc
 CMakeFiles/my_tumor.dir/depend: libmy_tumor_dict.cc
 CMakeFiles/my_tumor.dir/depend: libmy_tumor_dict_rdict.pcm
-	cd /home/ale/biodynamo-v1.05.125/demo/my_tumor/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/ale/biodynamo-v1.05.125/demo/my_tumor /home/ale/biodynamo-v1.05.125/demo/my_tumor /home/ale/biodynamo-v1.05.125/demo/my_tumor/build /home/ale/biodynamo-v1.05.125/demo/my_tumor/build /home/ale/biodynamo-v1.05.125/demo/my_tumor/build/CMakeFiles/my_tumor.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/ale/my_tumor/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/ale/my_tumor /home/ale/my_tumor /home/ale/my_tumor/build /home/ale/my_tumor/build /home/ale/my_tumor/build/CMakeFiles/my_tumor.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/my_tumor.dir/depend
 

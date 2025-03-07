@@ -4,7 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/ale/biodynamo-v1.05.125/demo/my_tumor/build/CMakeFiles/my_tumor-main.cc" "/home/ale/biodynamo-v1.05.125/demo/my_tumor/build/CMakeFiles/my_tumor-bin.dir/CMakeFiles/my_tumor-main.cc.o"
+  "/home/ale/my_tumor/build/CMakeFiles/my_tumor-main.cc" "/home/ale/my_tumor/build/CMakeFiles/my_tumor-bin.dir/CMakeFiles/my_tumor-main.cc.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 
@@ -30,7 +30,7 @@ set(CMAKE_CXX_TARGET_INCLUDE_PATH
 
 # Targets to which this target links.
 set(CMAKE_TARGET_LINKED_INFO_FILES
-  "/home/ale/biodynamo-v1.05.125/demo/my_tumor/build/CMakeFiles/my_tumor.dir/DependInfo.cmake"
+  "/home/ale/my_tumor/build/CMakeFiles/my_tumor.dir/DependInfo.cmake"
   )
 
 # Fortran module output directory.

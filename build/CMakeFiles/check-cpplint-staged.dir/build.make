@@ -62,10 +62,10 @@ RM = /usr/local/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/ale/biodynamo-v1.05.125/demo/my_tumor
+CMAKE_SOURCE_DIR = /home/ale/my_tumor
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/ale/biodynamo-v1.05.125/demo/my_tumor/build
+CMAKE_BINARY_DIR = /home/ale/my_tumor/build
 
 # Utility rule file for check-cpplint-staged.
 
@@ -73,8 +73,8 @@ CMAKE_BINARY_DIR = /home/ale/biodynamo-v1.05.125/demo/my_tumor/build
 include CMakeFiles/check-cpplint-staged.dir/progress.make
 
 CMakeFiles/check-cpplint-staged:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/ale/biodynamo-v1.05.125/demo/my_tumor/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Run cpplint on selected files. Fails if errors are found."
-	cd /home/ale/biodynamo-v1.05.125/demo/my_tumor && /home/ale/biodynamo-v1.05.125/share/util/run-cpplint.sh `/home/ale/biodynamo-v1.05.125/share/util/get-staged-src-files.sh /home/ale/biodynamo-v1.05.125/demo/my_tumor`
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/ale/my_tumor/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Run cpplint on selected files. Fails if errors are found."
+	cd /home/ale/my_tumor && /home/ale/biodynamo-v1.05.125/share/util/run-cpplint.sh `/home/ale/biodynamo-v1.05.125/share/util/get-staged-src-files.sh /home/ale/my_tumor`
 
 check-cpplint-staged: CMakeFiles/check-cpplint-staged
 check-cpplint-staged: CMakeFiles/check-cpplint-staged.dir/build.make
@@ -91,6 +91,6 @@ CMakeFiles/check-cpplint-staged.dir/clean:
 .PHONY : CMakeFiles/check-cpplint-staged.dir/clean
 
 CMakeFiles/check-cpplint-staged.dir/depend:
-	cd /home/ale/biodynamo-v1.05.125/demo/my_tumor/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/ale/biodynamo-v1.05.125/demo/my_tumor /home/ale/biodynamo-v1.05.125/demo/my_tumor /home/ale/biodynamo-v1.05.125/demo/my_tumor/build /home/ale/biodynamo-v1.05.125/demo/my_tumor/build /home/ale/biodynamo-v1.05.125/demo/my_tumor/build/CMakeFiles/check-cpplint-staged.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/ale/my_tumor/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/ale/my_tumor /home/ale/my_tumor /home/ale/my_tumor/build /home/ale/my_tumor/build /home/ale/my_tumor/build/CMakeFiles/check-cpplint-staged.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/check-cpplint-staged.dir/depend
 

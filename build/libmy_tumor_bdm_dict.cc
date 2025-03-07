@@ -24,10 +24,10 @@ static struct BioDynaMoDictInit {
     idirs << "/usr/lib/x86_64-linux-gnu/openmpi/include/openmpi" << ":";
     idirs << "/usr/include" << ":";
     idirs << std::getenv("ROOTSYS") << "/include" << ":";
-    idirs << std::getenv("BDMSYS") << "/demo/my_tumor/build/omp" << ":";
+    idirs << "/home/ale/my_tumor/build/omp" << ":";
     idirs << std::getenv("BDMSYS") << "/include" << ":";
     idirs << std::getenv("BDMSYS") << "/include/optim" << ":";
-    idirs << std::getenv("BDMSYS") << "/demo/my_tumor/src" << ":";
+    idirs << "/home/ale/my_tumor/src" << ":";
     bdm::JitHeaders::Register("brownian.h");
     bdm::JitHeaders::Register("my_tumor.h");
 

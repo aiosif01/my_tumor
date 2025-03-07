@@ -62,10 +62,10 @@ RM = /usr/local/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/ale/biodynamo-v1.05.125/demo/my_tumor
+CMAKE_SOURCE_DIR = /home/ale/my_tumor
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/ale/biodynamo-v1.05.125/demo/my_tumor/build
+CMAKE_BINARY_DIR = /home/ale/my_tumor/build
 
 # Utility rule file for show-tidy-all.
 
@@ -73,8 +73,8 @@ CMAKE_BINARY_DIR = /home/ale/biodynamo-v1.05.125/demo/my_tumor/build
 include CMakeFiles/show-tidy-all.dir/progress.make
 
 CMakeFiles/show-tidy-all:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/ale/biodynamo-v1.05.125/demo/my_tumor/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Run clang-tidy on selected files and display errors."
-	cd /home/ale/biodynamo-v1.05.125/demo/my_tumor && /home/ale/biodynamo-v1.05.125/share/util/run-clang-tidy.sh /usr/bin/clang-tidy /home/ale/biodynamo-v1.05.125/demo/my_tumor/build/clang_tidy_header_helper.cc /home/ale/biodynamo-v1.05.125/demo/my_tumor/build/compile_commands.json 2 `/home/ale/biodynamo-v1.05.125/share/util/get-all-src-files.sh /home/ale/biodynamo-v1.05.125/demo/my_tumor | grep -v -F -f /home/ale/biodynamo-v1.05.125/demo/my_tumor/.clang-tidy-ignore`
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/ale/my_tumor/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Run clang-tidy on selected files and display errors."
+	cd /home/ale/my_tumor && /home/ale/biodynamo-v1.05.125/share/util/run-clang-tidy.sh /usr/bin/clang-tidy /home/ale/my_tumor/build/clang_tidy_header_helper.cc /home/ale/my_tumor/build/compile_commands.json 2 `/home/ale/biodynamo-v1.05.125/share/util/get-all-src-files.sh /home/ale/my_tumor | grep -v -F -f /home/ale/my_tumor/.clang-tidy-ignore`
 
 show-tidy-all: CMakeFiles/show-tidy-all
 show-tidy-all: CMakeFiles/show-tidy-all.dir/build.make
@@ -91,6 +91,6 @@ CMakeFiles/show-tidy-all.dir/clean:
 .PHONY : CMakeFiles/show-tidy-all.dir/clean
 
 CMakeFiles/show-tidy-all.dir/depend:
-	cd /home/ale/biodynamo-v1.05.125/demo/my_tumor/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/ale/biodynamo-v1.05.125/demo/my_tumor /home/ale/biodynamo-v1.05.125/demo/my_tumor /home/ale/biodynamo-v1.05.125/demo/my_tumor/build /home/ale/biodynamo-v1.05.125/demo/my_tumor/build /home/ale/biodynamo-v1.05.125/demo/my_tumor/build/CMakeFiles/show-tidy-all.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/ale/my_tumor/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/ale/my_tumor /home/ale/my_tumor /home/ale/my_tumor/build /home/ale/my_tumor/build /home/ale/my_tumor/build/CMakeFiles/show-tidy-all.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/show-tidy-all.dir/depend
 
