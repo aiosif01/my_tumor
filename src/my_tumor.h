@@ -137,8 +137,8 @@ inline int Simulate(int argc, const char** argv) {
   auto* myrand = simulation.GetRandom();
 
   // Set Brownian motion parameters
-  double tumor_diffusion = 0.5;    // Diffusion coefficient for tumor cells
-  double healthy_diffusion = 0.1;  // Diffusion coefficient for healthy cells
+  double tumor_diffusion = 0.75;    // Diffusion coefficient for tumor cells
+  double healthy_diffusion = 0.45;  // Diffusion coefficient for healthy cells
 
   // Create a population of healthy cells
   size_t nb_of_healthy_cells = 100;
@@ -160,7 +160,7 @@ inline int Simulate(int argc, const char** argv) {
   }
 
   // Create multiple tumor cells
-  size_t nb_of_tumor_cells = 3; // Change this number to adjust how many tumor cells to create
+  size_t nb_of_tumor_cells = 10; // Change this number to adjust how many tumor cells to create
 
   // Create tumor cells in random positions clustered near center
   for (size_t i = 0; i < nb_of_tumor_cells; ++i) {
@@ -184,7 +184,7 @@ inline int Simulate(int argc, const char** argv) {
   }
 
   // Run the simulation for 100 time steps
-  simulation.GetScheduler()->Simulate(100);
+  simulation.GetScheduler()->Simulate(300);
 
   // Count cells at the end
   size_t healthy_count = 0;
