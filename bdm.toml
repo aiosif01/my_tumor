@@ -3,5 +3,5 @@ export = true
 interval = 1
 
 [[visualize_agent]]
-  name = "MyTumorCell"
-  additional_data_members = [ "cell_color_" ]
+  name = "MyCell"
+  additional_data_members = ["cell_color_"]

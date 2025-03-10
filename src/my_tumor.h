@@ -2,133 +2,20 @@
 #define MY_TUMOR_H_
 
 #include "biodynamo.h"
-#include "brownian.h"
+#include "my_cell.h"
+#include "behaviors.h"
+#include "substances.h"
 
 namespace bdm {
 namespace my_tumor {
 
-// -----------------------------------------------------------------------------
-// MyTumorCell: a custom cell that models tumor and healthy cells
-// -----------------------------------------------------------------------------
-class MyTumorCell : public Cell {
-  BDM_AGENT_HEADER(MyTumorCell, Cell, 1);
 
- public:
-  MyTumorCell() : is_tumor_(false), cell_color_(0) {}
-  
-  explicit MyTumorCell(const Real3& position) : Base(position), 
-                                                is_tumor_(false), 
-                                                cell_color_(0) {}
-  
-  virtual ~MyTumorCell() {}
 
-  // Copy constructor for cell division events
-  MyTumorCell(const MyTumorCell& other) : Base(other), 
-                                          is_tumor_(other.is_tumor_), 
-                                          cell_color_(other.cell_color_) {}
-
-  // Initialize during division
-  void Initialize(const NewAgentEvent& event) override {
-    Base::Initialize(event);
-    if (auto* mother = dynamic_cast<MyTumorCell*>(event.existing_agent)) {
-      is_tumor_ = mother->is_tumor_;
-      cell_color_ = mother->cell_color_;
-    }
-  }
-
-  // Getters and setters
-  bool IsTumor() const { return is_tumor_; }
-  void SetTumor(bool is_tumor) { 
-    is_tumor_ = is_tumor; 
-    // Set color based on cell type
-    cell_color_ = is_tumor ? 2 : 1;  // Tumor cells are red (2), healthy cells are blue (1)
-  }
-
-  // Cell color for visualization
-  void SetCellColor(int cell_color) { cell_color_ = cell_color; }
-  int GetCellColor() const { return cell_color_; }
-
- private:
-  bool is_tumor_;   // Whether this is a tumor cell
-  int cell_color_;  // Cell color for visualization
-};
-
-// -----------------------------------------------------------------------------
-// Growth behavior: simple behavior for cell growth and division
-// -----------------------------------------------------------------------------
-struct Growth : public Behavior {
-  BDM_BEHAVIOR_HEADER(Growth, Behavior, 1);
-
-  Growth() { AlwaysCopyToNew(); }
-  virtual ~Growth() {}
-
-  void Run(Agent* agent) override {
-    if (auto* cell = dynamic_cast<MyTumorCell*>(agent)) {
-      auto* random = Simulation::GetActive()->GetRandom();
-      
-      // Grow the cell until it reaches a given size
-      if (cell->GetDiameter() < 8) {
-        // Tumor cells grow faster than healthy cells
-        double growth_rate = cell->IsTumor() ? 500 : 300;
-        cell->ChangeVolume(growth_rate);
-        
-        // No random movement during growth - movement will be controlled solely by BrownianMotion
-      } else {
-        // Division probability is higher for tumor cells
-        double division_probability = cell->IsTumor() ? 0.8 : 0.4;
-        if (random->Uniform(0, 1) < division_probability) {
-          cell->Divide();
-        }
-      }
-    }
-  }
-};
-
-// Custom Brownian motion behavior that handles tumor and healthy cells differently
-struct TumorBrownianMotion : public Behavior {
-  BDM_BEHAVIOR_HEADER(TumorBrownianMotion, Behavior, 1);
-
-  TumorBrownianMotion() 
-    : tumor_diffusion_(0), healthy_diffusion_(0) {
-    AlwaysCopyToNew();
-  }
-  
-  TumorBrownianMotion(double tumor_diffusion, double healthy_diffusion) 
-    : tumor_diffusion_(tumor_diffusion), healthy_diffusion_(healthy_diffusion) {
-    AlwaysCopyToNew();
-  }
-  
-  virtual ~TumorBrownianMotion() {}
-
-  void Run(Agent* agent) override {
-    auto* cell = dynamic_cast<MyTumorCell*>(agent);
-    if (!cell) return;
-    
-    auto* random = Simulation::GetActive()->GetRandom();
-    
-    // Select diffusion coefficient based on cell type
-    double coefficient = cell->IsTumor() ? tumor_diffusion_ : healthy_diffusion_;
-    
-    // Create random displacement vector
-    Real3 displacement = random->template UniformArray<3>(-coefficient, coefficient);
-    
-    // Apply the displacement to the cell
-    cell->UpdatePosition(displacement);
-  }
-
-  double tumor_diffusion_;    // Diffusion coefficient for tumor cells
-  double healthy_diffusion_;  // Diffusion coefficient for healthy cells
-};
-
-// -----------------------------------------------------------------------------
-// Simulate(): set up and run the simulation.
-// -----------------------------------------------------------------------------
 inline int Simulate(int argc, const char** argv) {
-  // Define simulation parameters
   auto set_param = [](Param* param) {
     param->bound_space = Param::BoundSpaceMode::kClosed;
     param->min_bound = 0;
-    param->max_bound = 100;  // Cube: 100 x 100 x 100
+    param->max_bound = 100;
   };
 
   Simulation simulation(argc, argv, set_param);
@@ -136,74 +23,99 @@ inline int Simulate(int argc, const char** argv) {
   auto* param = simulation.GetParam();
   auto* myrand = simulation.GetRandom();
 
-  // Set Brownian motion parameters
-  double tumor_diffusion = 0.75;    // Diffusion coefficient for tumor cells
-  double healthy_diffusion = 0.45;  // Diffusion coefficient for healthy cells
+  // Define substances
+  DefineSubstances(&simulation);
 
-  // Create a population of healthy cells
-  size_t nb_of_healthy_cells = 100;
-  for (size_t i = 0; i < nb_of_healthy_cells; ++i) {
-    Real3 position = { myrand->Uniform(param->min_bound, param->max_bound),
-                       myrand->Uniform(param->min_bound, param->max_bound),
-                       myrand->Uniform(param->min_bound, param->max_bound) };
-    
-    // Create a healthy cell
-    MyTumorCell* cell = new MyTumorCell(position);
+  // Brownian motion parameters
+  double tumor_diff = 0.75;
+  double healthy_diff = 0.45;
+
+  // Create cells with layered types - use fewer cells initially for testing
+  size_t total_cells = 50;  // Reduced from 100
+  for (size_t i = 0; i < total_cells; ++i) {
+    // Keep cells away from boundaries to avoid diffusion grid issues
+    Real3 pos = {myrand->Uniform(5, 95), myrand->Uniform(5, 95), myrand->Uniform(5, 95)};
+    MyCell* cell = new MyCell(pos);
     cell->SetDiameter(5);
-    cell->SetTumor(false);  // This is a healthy cell
+
+    // Assign cell type based on y-coordinate (layers)
+    real_t y = pos[1];
+    if (y < 30) {
+      cell->SetCellType(CellType::Fibroblast);
+    } else if (y < 60) {
+      cell->SetCellType(CellType::HealthyEpithelial);
+    } else {
+      cell->SetCellType(CellType::Endothelial);
+    }
+
+    // Add behaviors to all cells
     cell->AddBehavior(new Growth());
-    
-    // Add our custom Brownian motion with cell type specific diffusion coefficients
-    cell->AddBehavior(new TumorBrownianMotion(tumor_diffusion, healthy_diffusion));
-    
+    cell->AddBehavior(new TumorBrownianMotion(tumor_diff, healthy_diff));
+    cell->AddBehavior(new SecretionBehavior());
+    cell->AddBehavior(new ResponseBehavior());
+    cell->AddBehavior(new CellInteractionBehavior());
     ctxt->AddAgent(cell);
   }
 
-  // Create multiple tumor cells
-  size_t nb_of_tumor_cells = 3; // Change this number to adjust how many tumor cells to create
-
-  // Create tumor cells in random positions clustered near center
-  for (size_t i = 0; i < nb_of_tumor_cells; ++i) {
-    // Generate random position for tumor cell (clustered near center)
-    Real3 position = { 
-      myrand->Uniform(40, 60),   // X coordinate (clustered near center)
-      myrand->Uniform(40, 60),   // Y coordinate (clustered near center)
-      myrand->Uniform(40, 60)    // Z coordinate (clustered near center)
-    };
-    
-    // Create a tumor cell
-    MyTumorCell* tumor_cell = new MyTumorCell(position);
-    tumor_cell->SetDiameter(6.5);
-    tumor_cell->SetTumor(true);  // This is a tumor cell
-    tumor_cell->AddBehavior(new Growth());
-    
-    // Add our custom Brownian motion with cell type specific diffusion coefficients
-    tumor_cell->AddBehavior(new TumorBrownianMotion(tumor_diffusion, healthy_diffusion));
-    
-    ctxt->AddAgent(tumor_cell);
+  // Add some immune cells randomly - keep away from boundaries
+  size_t immune_cells = 5;  // Reduced from 10
+  for (size_t i = 0; i < immune_cells; ++i) {
+    Real3 pos = {myrand->Uniform(10, 90), myrand->Uniform(10, 90), myrand->Uniform(10, 90)};
+    MyCell* immune = new MyCell(pos);
+    immune->SetDiameter(4.5); // Immune cells are smaller
+    immune->SetCellType(CellType::Immune);
+    immune->AddBehavior(new TumorBrownianMotion(0.8, 0.8)); // Slightly faster than 1.0
+    immune->AddBehavior(new CellInteractionBehavior());
+    ctxt->AddAgent(immune);
   }
 
-  // Run the simulation for 100 time steps
-  simulation.GetScheduler()->Simulate(300);
+  // Add tumor cells near center - well away from boundaries
+  size_t tumor_cells = 3;
+  for (size_t i = 0; i < tumor_cells; ++i) {
+    Real3 pos = {myrand->Uniform(45, 55), myrand->Uniform(45, 55), myrand->Uniform(45, 55)};
+    MyCell* tumor = new MyCell(pos);
+    tumor->SetDiameter(6.5);
+    tumor->SetCellType(CellType::Tumor);
+    tumor->AddBehavior(new Growth());
+    tumor->AddBehavior(new TumorBrownianMotion(tumor_diff, healthy_diff));
+    tumor->AddBehavior(new SecretionBehavior());
+    tumor->AddBehavior(new ResponseBehavior());
+    tumor->AddBehavior(new CellInteractionBehavior());
+    ctxt->AddAgent(tumor);
+  }
 
-  // Count cells at the end
-  size_t healthy_count = 0;
-  size_t tumor_count = 0;
+  // Run simulation with outputs at regular intervals - use smaller step size
+  auto* scheduler = simulation.GetScheduler();
   
-  simulation.GetResourceManager()->ForEachAgent([&](Agent* agent) {
-    if (auto* cell = dynamic_cast<MyTumorCell*>(agent)) {
-      if (cell->IsTumor()) {
-        tumor_count++;
-      } else {
-        healthy_count++;
+  // Output initial state
+  std::cout << "Initial setup complete. Starting simulation..." << std::endl;
+  
+  // Define step size (number of steps per interval)
+  int total_steps = 150;  // Reduced from 300
+  int intervals = 6;
+  int step_size = total_steps / intervals;
+  
+  // Run simulation in intervals and output status
+  for (int i = 1; i <= intervals; i++) {
+    scheduler->Simulate(step_size);
+    
+    // Count cells of each type
+    std::map<CellType, size_t> counts;
+    simulation.GetResourceManager()->ForEachAgent([&](Agent* agent) {
+      if (auto* cell = dynamic_cast<MyCell*>(agent)) {
+        counts[cell->GetCellType()]++;
       }
+    });
+    
+    // Output progress
+    std::cout << "Simulation " << (i * step_size) << "/" << total_steps << " steps completed." << std::endl;
+    std::cout << "Current cell counts:" << std::endl;
+    for (const auto& [type, count] : counts) {
+      std::cout << "  Type " << static_cast<int>(type) << ": " << count << std::endl;
     }
-  });
-  
+  }
+
   std::cout << "Simulation completed successfully!" << std::endl;
-  std::cout << "Final counts - Healthy cells: " << healthy_count 
-            << ", Tumor cells: " << tumor_count << std::endl;
-  
   return 0;
 }
 

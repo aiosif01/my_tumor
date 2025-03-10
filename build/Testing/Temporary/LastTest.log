@@ -1,0 +1,55 @@
+Start testing: Mar 10 17:46 EET
+----------------------------------------------------------
+1/2 Testing: UtilTest.NumberTest
+1/2 Test: UtilTest.NumberTest
+Command: "/home/ale/my_tumor/build/my_tumor-test" "--gtest_filter=UtilTest.NumberTest" "--gtest_also_run_disabled_tests"
+Directory: /home/ale/my_tumor/build
+"UtilTest.NumberTest" start time: Mar 10 17:46 EET
+Output:
+----------------------------------------------------------
+Note: Google Test filter = UtilTest.NumberTest
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from UtilTest
+[ RUN      ] UtilTest.NumberTest
+[       OK ] UtilTest.NumberTest (0 ms)
+[----------] 1 test from UtilTest (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   0.03 sec
+----------------------------------------------------------
+Test Passed.
+"UtilTest.NumberTest" end time: Mar 10 17:46 EET
+"UtilTest.NumberTest" time elapsed: 00:00:00
+----------------------------------------------------------
+
+2/2 Testing: AgentTest.AddAgentsToSimulation
+2/2 Test: AgentTest.AddAgentsToSimulation
+Command: "/home/ale/my_tumor/build/my_tumor-test" "--gtest_filter=AgentTest.AddAgentsToSimulation" "--gtest_also_run_disabled_tests"
+Directory: /home/ale/my_tumor/build
+"AgentTest.AddAgentsToSimulation" start time: Mar 10 17:46 EET
+Output:
+----------------------------------------------------------
+Note: Google Test filter = AgentTest.AddAgentsToSimulation
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from AgentTest
+[ RUN      ] AgentTest.AddAgentsToSimulation
+[       OK ] AgentTest.AddAgentsToSimulation (7231 ms)
+[----------] 1 test from AgentTest (7231 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (7231 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   7.30 sec
+----------------------------------------------------------
+Test Passed.
+"AgentTest.AddAgentsToSimulation" end time: Mar 10 17:46 EET
+"AgentTest.AddAgentsToSimulation" time elapsed: 00:00:07
+----------------------------------------------------------
+
+End testing: Mar 10 17:46 EET

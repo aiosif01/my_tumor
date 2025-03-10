@@ -28,8 +28,12 @@ static struct BioDynaMoDictInit {
     idirs << std::getenv("BDMSYS") << "/include" << ":";
     idirs << std::getenv("BDMSYS") << "/include/optim" << ":";
     idirs << "/home/ale/my_tumor/src" << ":";
+    bdm::JitHeaders::Register("behaviors.h");
     bdm::JitHeaders::Register("brownian.h");
+    bdm::JitHeaders::Register("my_cell.h");
+    bdm::JitHeaders::Register("my_diffusion_grid.h");
     bdm::JitHeaders::Register("my_tumor.h");
+    bdm::JitHeaders::Register("substances.h");
 
     AppendEnvVar(idirs, "ROOT_INCLUDE_PATH", "");
     setenv("ROOT_INCLUDE_PATH", idirs.str().c_str(), true);

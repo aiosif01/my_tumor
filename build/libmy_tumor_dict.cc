@@ -35,8 +35,12 @@
 #include "TDataMember.h"
 
 // Header files passed as explicit arguments
+#include "/home/ale/my_tumor/src/behaviors.h"
 #include "/home/ale/my_tumor/src/brownian.h"
+#include "/home/ale/my_tumor/src/my_cell.h"
+#include "/home/ale/my_tumor/src/my_diffusion_grid.h"
 #include "/home/ale/my_tumor/src/my_tumor.h"
+#include "/home/ale/my_tumor/src/substances.h"
 
 // Header files passed via #pragma extra_include
 
@@ -198,7 +202,7 @@ namespace bdm {
       inline ::ROOT::TGenericClassInfo *GenerateInitInstance()
       {
          static ::ROOT::TGenericClassInfo 
-            instance("bdm::my_tumor", 0 /*version*/, "", 23,
+            instance("bdm::my_tumor", 0 /*version*/, "my_cell.h", 7,
                      ::ROOT::Internal::DefineBehavior((void*)nullptr,(void*)nullptr),
                      &bdmcLcLmy_tumor_Dictionary, 0);
          return &instance;
@@ -609,65 +613,33 @@ namespace ROOT {
 } // end of namespace ROOT
 
 namespace ROOT {
-   static void *new_bdmcLcLBrownianMotion(void *p = nullptr);
-   static void *newArray_bdmcLcLBrownianMotion(Long_t size, void *p);
-   static void delete_bdmcLcLBrownianMotion(void *p);
-   static void deleteArray_bdmcLcLBrownianMotion(void *p);
-   static void destruct_bdmcLcLBrownianMotion(void *p);
+   static void *new_bdmcLcLmy_tumorcLcLMyCell(void *p = nullptr);
+   static void delete_bdmcLcLmy_tumorcLcLMyCell(void *p);
+   static void deleteArray_bdmcLcLmy_tumorcLcLMyCell(void *p);
+   static void destruct_bdmcLcLmy_tumorcLcLMyCell(void *p);
 
    // Function generating the singleton type initializer
-   static TGenericClassInfo *GenerateInitInstanceLocal(const ::bdm::BrownianMotion*)
+   static TGenericClassInfo *GenerateInitInstanceLocal(const ::bdm::my_tumor::MyCell*)
    {
-      ::bdm::BrownianMotion *ptr = nullptr;
-      static ::TVirtualIsAProxy* isa_proxy = new ::TInstrumentedIsAProxy< ::bdm::BrownianMotion >(nullptr);
+      ::bdm::my_tumor::MyCell *ptr = nullptr;
+      static ::TVirtualIsAProxy* isa_proxy = new ::TInstrumentedIsAProxy< ::bdm::my_tumor::MyCell >(nullptr);
       static ::ROOT::TGenericClassInfo 
-         instance("bdm::BrownianMotion", ::bdm::BrownianMotion::Class_Version(), "", 31,
-                  typeid(::bdm::BrownianMotion), ::ROOT::Internal::DefineBehavior(ptr, ptr),
-                  &::bdm::BrownianMotion::Dictionary, isa_proxy, 4,
-                  sizeof(::bdm::BrownianMotion) );
-      instance.SetNew(&new_bdmcLcLBrownianMotion);
-      instance.SetNewArray(&newArray_bdmcLcLBrownianMotion);
-      instance.SetDelete(&delete_bdmcLcLBrownianMotion);
-      instance.SetDeleteArray(&deleteArray_bdmcLcLBrownianMotion);
-      instance.SetDestructor(&destruct_bdmcLcLBrownianMotion);
+         instance("bdm::my_tumor::MyCell", ::bdm::my_tumor::MyCell::Class_Version(), "my_cell.h", 18,
+                  typeid(::bdm::my_tumor::MyCell), ::ROOT::Internal::DefineBehavior(ptr, ptr),
+                  &::bdm::my_tumor::MyCell::Dictionary, isa_proxy, 4,
+                  sizeof(::bdm::my_tumor::MyCell) );
+      instance.SetNew(&new_bdmcLcLmy_tumorcLcLMyCell);
+      instance.SetDelete(&delete_bdmcLcLmy_tumorcLcLMyCell);
+      instance.SetDeleteArray(&deleteArray_bdmcLcLmy_tumorcLcLMyCell);
+      instance.SetDestructor(&destruct_bdmcLcLmy_tumorcLcLMyCell);
       return &instance;
    }
-   TGenericClassInfo *GenerateInitInstance(const ::bdm::BrownianMotion*)
+   TGenericClassInfo *GenerateInitInstance(const ::bdm::my_tumor::MyCell*)
    {
-      return GenerateInitInstanceLocal(static_cast<::bdm::BrownianMotion*>(nullptr));
+      return GenerateInitInstanceLocal(static_cast<::bdm::my_tumor::MyCell*>(nullptr));
    }
    // Static variable to force the class initialization
-   static ::ROOT::TGenericClassInfo *_R__UNIQUE_DICT_(Init) = GenerateInitInstanceLocal(static_cast<const ::bdm::BrownianMotion*>(nullptr)); R__UseDummy(_R__UNIQUE_DICT_(Init));
-} // end of namespace ROOT
-
-namespace ROOT {
-   static void *new_bdmcLcLmy_tumorcLcLMyTumorCell(void *p = nullptr);
-   static void delete_bdmcLcLmy_tumorcLcLMyTumorCell(void *p);
-   static void deleteArray_bdmcLcLmy_tumorcLcLMyTumorCell(void *p);
-   static void destruct_bdmcLcLmy_tumorcLcLMyTumorCell(void *p);
-
-   // Function generating the singleton type initializer
-   static TGenericClassInfo *GenerateInitInstanceLocal(const ::bdm::my_tumor::MyTumorCell*)
-   {
-      ::bdm::my_tumor::MyTumorCell *ptr = nullptr;
-      static ::TVirtualIsAProxy* isa_proxy = new ::TInstrumentedIsAProxy< ::bdm::my_tumor::MyTumorCell >(nullptr);
-      static ::ROOT::TGenericClassInfo 
-         instance("bdm::my_tumor::MyTumorCell", ::bdm::my_tumor::MyTumorCell::Class_Version(), "", 78,
-                  typeid(::bdm::my_tumor::MyTumorCell), ::ROOT::Internal::DefineBehavior(ptr, ptr),
-                  &::bdm::my_tumor::MyTumorCell::Dictionary, isa_proxy, 4,
-                  sizeof(::bdm::my_tumor::MyTumorCell) );
-      instance.SetNew(&new_bdmcLcLmy_tumorcLcLMyTumorCell);
-      instance.SetDelete(&delete_bdmcLcLmy_tumorcLcLMyTumorCell);
-      instance.SetDeleteArray(&deleteArray_bdmcLcLmy_tumorcLcLMyTumorCell);
-      instance.SetDestructor(&destruct_bdmcLcLmy_tumorcLcLMyTumorCell);
-      return &instance;
-   }
-   TGenericClassInfo *GenerateInitInstance(const ::bdm::my_tumor::MyTumorCell*)
-   {
-      return GenerateInitInstanceLocal(static_cast<::bdm::my_tumor::MyTumorCell*>(nullptr));
-   }
-   // Static variable to force the class initialization
-   static ::ROOT::TGenericClassInfo *_R__UNIQUE_DICT_(Init) = GenerateInitInstanceLocal(static_cast<const ::bdm::my_tumor::MyTumorCell*>(nullptr)); R__UseDummy(_R__UNIQUE_DICT_(Init));
+   static ::ROOT::TGenericClassInfo *_R__UNIQUE_DICT_(Init) = GenerateInitInstanceLocal(static_cast<const ::bdm::my_tumor::MyCell*>(nullptr)); R__UseDummy(_R__UNIQUE_DICT_(Init));
 } // end of namespace ROOT
 
 namespace ROOT {
@@ -683,7 +655,7 @@ namespace ROOT {
       ::bdm::my_tumor::Growth *ptr = nullptr;
       static ::TVirtualIsAProxy* isa_proxy = new ::TInstrumentedIsAProxy< ::bdm::my_tumor::Growth >(nullptr);
       static ::ROOT::TGenericClassInfo 
-         instance("bdm::my_tumor::Growth", ::bdm::my_tumor::Growth::Class_Version(), "", 124,
+         instance("bdm::my_tumor::Growth", ::bdm::my_tumor::Growth::Class_Version(), "", 25,
                   typeid(::bdm::my_tumor::Growth), ::ROOT::Internal::DefineBehavior(ptr, ptr),
                   &::bdm::my_tumor::Growth::Dictionary, isa_proxy, 4,
                   sizeof(::bdm::my_tumor::Growth) );
@@ -715,7 +687,7 @@ namespace ROOT {
       ::bdm::my_tumor::TumorBrownianMotion *ptr = nullptr;
       static ::TVirtualIsAProxy* isa_proxy = new ::TInstrumentedIsAProxy< ::bdm::my_tumor::TumorBrownianMotion >(nullptr);
       static ::ROOT::TGenericClassInfo 
-         instance("bdm::my_tumor::TumorBrownianMotion", ::bdm::my_tumor::TumorBrownianMotion::Class_Version(), "", 153,
+         instance("bdm::my_tumor::TumorBrownianMotion", ::bdm::my_tumor::TumorBrownianMotion::Class_Version(), "", 48,
                   typeid(::bdm::my_tumor::TumorBrownianMotion), ::ROOT::Internal::DefineBehavior(ptr, ptr),
                   &::bdm::my_tumor::TumorBrownianMotion::Dictionary, isa_proxy, 4,
                   sizeof(::bdm::my_tumor::TumorBrownianMotion) );
@@ -732,6 +704,134 @@ namespace ROOT {
    }
    // Static variable to force the class initialization
    static ::ROOT::TGenericClassInfo *_R__UNIQUE_DICT_(Init) = GenerateInitInstanceLocal(static_cast<const ::bdm::my_tumor::TumorBrownianMotion*>(nullptr)); R__UseDummy(_R__UNIQUE_DICT_(Init));
+} // end of namespace ROOT
+
+namespace ROOT {
+   static void *new_bdmcLcLmy_tumorcLcLSecretionBehavior(void *p = nullptr);
+   static void *newArray_bdmcLcLmy_tumorcLcLSecretionBehavior(Long_t size, void *p);
+   static void delete_bdmcLcLmy_tumorcLcLSecretionBehavior(void *p);
+   static void deleteArray_bdmcLcLmy_tumorcLcLSecretionBehavior(void *p);
+   static void destruct_bdmcLcLmy_tumorcLcLSecretionBehavior(void *p);
+
+   // Function generating the singleton type initializer
+   static TGenericClassInfo *GenerateInitInstanceLocal(const ::bdm::my_tumor::SecretionBehavior*)
+   {
+      ::bdm::my_tumor::SecretionBehavior *ptr = nullptr;
+      static ::TVirtualIsAProxy* isa_proxy = new ::TInstrumentedIsAProxy< ::bdm::my_tumor::SecretionBehavior >(nullptr);
+      static ::ROOT::TGenericClassInfo 
+         instance("bdm::my_tumor::SecretionBehavior", ::bdm::my_tumor::SecretionBehavior::Class_Version(), "", 75,
+                  typeid(::bdm::my_tumor::SecretionBehavior), ::ROOT::Internal::DefineBehavior(ptr, ptr),
+                  &::bdm::my_tumor::SecretionBehavior::Dictionary, isa_proxy, 4,
+                  sizeof(::bdm::my_tumor::SecretionBehavior) );
+      instance.SetNew(&new_bdmcLcLmy_tumorcLcLSecretionBehavior);
+      instance.SetNewArray(&newArray_bdmcLcLmy_tumorcLcLSecretionBehavior);
+      instance.SetDelete(&delete_bdmcLcLmy_tumorcLcLSecretionBehavior);
+      instance.SetDeleteArray(&deleteArray_bdmcLcLmy_tumorcLcLSecretionBehavior);
+      instance.SetDestructor(&destruct_bdmcLcLmy_tumorcLcLSecretionBehavior);
+      return &instance;
+   }
+   TGenericClassInfo *GenerateInitInstance(const ::bdm::my_tumor::SecretionBehavior*)
+   {
+      return GenerateInitInstanceLocal(static_cast<::bdm::my_tumor::SecretionBehavior*>(nullptr));
+   }
+   // Static variable to force the class initialization
+   static ::ROOT::TGenericClassInfo *_R__UNIQUE_DICT_(Init) = GenerateInitInstanceLocal(static_cast<const ::bdm::my_tumor::SecretionBehavior*>(nullptr)); R__UseDummy(_R__UNIQUE_DICT_(Init));
+} // end of namespace ROOT
+
+namespace ROOT {
+   static void *new_bdmcLcLmy_tumorcLcLResponseBehavior(void *p = nullptr);
+   static void *newArray_bdmcLcLmy_tumorcLcLResponseBehavior(Long_t size, void *p);
+   static void delete_bdmcLcLmy_tumorcLcLResponseBehavior(void *p);
+   static void deleteArray_bdmcLcLmy_tumorcLcLResponseBehavior(void *p);
+   static void destruct_bdmcLcLmy_tumorcLcLResponseBehavior(void *p);
+
+   // Function generating the singleton type initializer
+   static TGenericClassInfo *GenerateInitInstanceLocal(const ::bdm::my_tumor::ResponseBehavior*)
+   {
+      ::bdm::my_tumor::ResponseBehavior *ptr = nullptr;
+      static ::TVirtualIsAProxy* isa_proxy = new ::TInstrumentedIsAProxy< ::bdm::my_tumor::ResponseBehavior >(nullptr);
+      static ::ROOT::TGenericClassInfo 
+         instance("bdm::my_tumor::ResponseBehavior", ::bdm::my_tumor::ResponseBehavior::Class_Version(), "", 105,
+                  typeid(::bdm::my_tumor::ResponseBehavior), ::ROOT::Internal::DefineBehavior(ptr, ptr),
+                  &::bdm::my_tumor::ResponseBehavior::Dictionary, isa_proxy, 4,
+                  sizeof(::bdm::my_tumor::ResponseBehavior) );
+      instance.SetNew(&new_bdmcLcLmy_tumorcLcLResponseBehavior);
+      instance.SetNewArray(&newArray_bdmcLcLmy_tumorcLcLResponseBehavior);
+      instance.SetDelete(&delete_bdmcLcLmy_tumorcLcLResponseBehavior);
+      instance.SetDeleteArray(&deleteArray_bdmcLcLmy_tumorcLcLResponseBehavior);
+      instance.SetDestructor(&destruct_bdmcLcLmy_tumorcLcLResponseBehavior);
+      return &instance;
+   }
+   TGenericClassInfo *GenerateInitInstance(const ::bdm::my_tumor::ResponseBehavior*)
+   {
+      return GenerateInitInstanceLocal(static_cast<::bdm::my_tumor::ResponseBehavior*>(nullptr));
+   }
+   // Static variable to force the class initialization
+   static ::ROOT::TGenericClassInfo *_R__UNIQUE_DICT_(Init) = GenerateInitInstanceLocal(static_cast<const ::bdm::my_tumor::ResponseBehavior*>(nullptr)); R__UseDummy(_R__UNIQUE_DICT_(Init));
+} // end of namespace ROOT
+
+namespace ROOT {
+   static void *new_bdmcLcLmy_tumorcLcLCellInteractionBehavior(void *p = nullptr);
+   static void *newArray_bdmcLcLmy_tumorcLcLCellInteractionBehavior(Long_t size, void *p);
+   static void delete_bdmcLcLmy_tumorcLcLCellInteractionBehavior(void *p);
+   static void deleteArray_bdmcLcLmy_tumorcLcLCellInteractionBehavior(void *p);
+   static void destruct_bdmcLcLmy_tumorcLcLCellInteractionBehavior(void *p);
+
+   // Function generating the singleton type initializer
+   static TGenericClassInfo *GenerateInitInstanceLocal(const ::bdm::my_tumor::CellInteractionBehavior*)
+   {
+      ::bdm::my_tumor::CellInteractionBehavior *ptr = nullptr;
+      static ::TVirtualIsAProxy* isa_proxy = new ::TInstrumentedIsAProxy< ::bdm::my_tumor::CellInteractionBehavior >(nullptr);
+      static ::ROOT::TGenericClassInfo 
+         instance("bdm::my_tumor::CellInteractionBehavior", ::bdm::my_tumor::CellInteractionBehavior::Class_Version(), "", 126,
+                  typeid(::bdm::my_tumor::CellInteractionBehavior), ::ROOT::Internal::DefineBehavior(ptr, ptr),
+                  &::bdm::my_tumor::CellInteractionBehavior::Dictionary, isa_proxy, 4,
+                  sizeof(::bdm::my_tumor::CellInteractionBehavior) );
+      instance.SetNew(&new_bdmcLcLmy_tumorcLcLCellInteractionBehavior);
+      instance.SetNewArray(&newArray_bdmcLcLmy_tumorcLcLCellInteractionBehavior);
+      instance.SetDelete(&delete_bdmcLcLmy_tumorcLcLCellInteractionBehavior);
+      instance.SetDeleteArray(&deleteArray_bdmcLcLmy_tumorcLcLCellInteractionBehavior);
+      instance.SetDestructor(&destruct_bdmcLcLmy_tumorcLcLCellInteractionBehavior);
+      return &instance;
+   }
+   TGenericClassInfo *GenerateInitInstance(const ::bdm::my_tumor::CellInteractionBehavior*)
+   {
+      return GenerateInitInstanceLocal(static_cast<::bdm::my_tumor::CellInteractionBehavior*>(nullptr));
+   }
+   // Static variable to force the class initialization
+   static ::ROOT::TGenericClassInfo *_R__UNIQUE_DICT_(Init) = GenerateInitInstanceLocal(static_cast<const ::bdm::my_tumor::CellInteractionBehavior*>(nullptr)); R__UseDummy(_R__UNIQUE_DICT_(Init));
+} // end of namespace ROOT
+
+namespace ROOT {
+   static void *new_bdmcLcLBrownianMotion(void *p = nullptr);
+   static void *newArray_bdmcLcLBrownianMotion(Long_t size, void *p);
+   static void delete_bdmcLcLBrownianMotion(void *p);
+   static void deleteArray_bdmcLcLBrownianMotion(void *p);
+   static void destruct_bdmcLcLBrownianMotion(void *p);
+
+   // Function generating the singleton type initializer
+   static TGenericClassInfo *GenerateInitInstanceLocal(const ::bdm::BrownianMotion*)
+   {
+      ::bdm::BrownianMotion *ptr = nullptr;
+      static ::TVirtualIsAProxy* isa_proxy = new ::TInstrumentedIsAProxy< ::bdm::BrownianMotion >(nullptr);
+      static ::ROOT::TGenericClassInfo 
+         instance("bdm::BrownianMotion", ::bdm::BrownianMotion::Class_Version(), "", 238,
+                  typeid(::bdm::BrownianMotion), ::ROOT::Internal::DefineBehavior(ptr, ptr),
+                  &::bdm::BrownianMotion::Dictionary, isa_proxy, 4,
+                  sizeof(::bdm::BrownianMotion) );
+      instance.SetNew(&new_bdmcLcLBrownianMotion);
+      instance.SetNewArray(&newArray_bdmcLcLBrownianMotion);
+      instance.SetDelete(&delete_bdmcLcLBrownianMotion);
+      instance.SetDeleteArray(&deleteArray_bdmcLcLBrownianMotion);
+      instance.SetDestructor(&destruct_bdmcLcLBrownianMotion);
+      return &instance;
+   }
+   TGenericClassInfo *GenerateInitInstance(const ::bdm::BrownianMotion*)
+   {
+      return GenerateInitInstanceLocal(static_cast<::bdm::BrownianMotion*>(nullptr));
+   }
+   // Static variable to force the class initialization
+   static ::ROOT::TGenericClassInfo *_R__UNIQUE_DICT_(Init) = GenerateInitInstanceLocal(static_cast<const ::bdm::BrownianMotion*>(nullptr)); R__UseDummy(_R__UNIQUE_DICT_(Init));
 } // end of namespace ROOT
 
 namespace bdm {
@@ -883,76 +983,39 @@ TClass *VectorField::Class()
 
 } // namespace bdm
 namespace bdm {
-//______________________________________________________________________________
-atomic_TClass_ptr BrownianMotion::fgIsA(nullptr);  // static to hold class pointer
-
-//______________________________________________________________________________
-const char *BrownianMotion::Class_Name()
-{
-   return "bdm::BrownianMotion";
-}
-
-//______________________________________________________________________________
-const char *BrownianMotion::ImplFileName()
-{
-   return ::ROOT::GenerateInitInstanceLocal((const ::bdm::BrownianMotion*)nullptr)->GetImplFileName();
-}
-
-//______________________________________________________________________________
-int BrownianMotion::ImplFileLine()
-{
-   return ::ROOT::GenerateInitInstanceLocal((const ::bdm::BrownianMotion*)nullptr)->GetImplFileLine();
-}
-
-//______________________________________________________________________________
-TClass *BrownianMotion::Dictionary()
-{
-   fgIsA = ::ROOT::GenerateInitInstanceLocal((const ::bdm::BrownianMotion*)nullptr)->GetClass();
-   return fgIsA;
-}
-
-//______________________________________________________________________________
-TClass *BrownianMotion::Class()
-{
-   if (!fgIsA.load()) { R__LOCKGUARD(gInterpreterMutex); fgIsA = ::ROOT::GenerateInitInstanceLocal((const ::bdm::BrownianMotion*)nullptr)->GetClass(); }
-   return fgIsA;
-}
-
-} // namespace bdm
-namespace bdm {
    namespace my_tumor {
 //______________________________________________________________________________
-atomic_TClass_ptr MyTumorCell::fgIsA(nullptr);  // static to hold class pointer
+atomic_TClass_ptr MyCell::fgIsA(nullptr);  // static to hold class pointer
 
 //______________________________________________________________________________
-const char *MyTumorCell::Class_Name()
+const char *MyCell::Class_Name()
 {
-   return "bdm::my_tumor::MyTumorCell";
+   return "bdm::my_tumor::MyCell";
 }
 
 //______________________________________________________________________________
-const char *MyTumorCell::ImplFileName()
+const char *MyCell::ImplFileName()
 {
-   return ::ROOT::GenerateInitInstanceLocal((const ::bdm::my_tumor::MyTumorCell*)nullptr)->GetImplFileName();
+   return ::ROOT::GenerateInitInstanceLocal((const ::bdm::my_tumor::MyCell*)nullptr)->GetImplFileName();
 }
 
 //______________________________________________________________________________
-int MyTumorCell::ImplFileLine()
+int MyCell::ImplFileLine()
 {
-   return ::ROOT::GenerateInitInstanceLocal((const ::bdm::my_tumor::MyTumorCell*)nullptr)->GetImplFileLine();
+   return ::ROOT::GenerateInitInstanceLocal((const ::bdm::my_tumor::MyCell*)nullptr)->GetImplFileLine();
 }
 
 //______________________________________________________________________________
-TClass *MyTumorCell::Dictionary()
+TClass *MyCell::Dictionary()
 {
-   fgIsA = ::ROOT::GenerateInitInstanceLocal((const ::bdm::my_tumor::MyTumorCell*)nullptr)->GetClass();
+   fgIsA = ::ROOT::GenerateInitInstanceLocal((const ::bdm::my_tumor::MyCell*)nullptr)->GetClass();
    return fgIsA;
 }
 
 //______________________________________________________________________________
-TClass *MyTumorCell::Class()
+TClass *MyCell::Class()
 {
-   if (!fgIsA.load()) { R__LOCKGUARD(gInterpreterMutex); fgIsA = ::ROOT::GenerateInitInstanceLocal((const ::bdm::my_tumor::MyTumorCell*)nullptr)->GetClass(); }
+   if (!fgIsA.load()) { R__LOCKGUARD(gInterpreterMutex); fgIsA = ::ROOT::GenerateInitInstanceLocal((const ::bdm::my_tumor::MyCell*)nullptr)->GetClass(); }
    return fgIsA;
 }
 
@@ -1036,6 +1099,160 @@ TClass *TumorBrownianMotion::Class()
 
 } // namespace bdm::my_tumor
 } // namespace bdm::my_tumor
+namespace bdm {
+   namespace my_tumor {
+//______________________________________________________________________________
+atomic_TClass_ptr SecretionBehavior::fgIsA(nullptr);  // static to hold class pointer
+
+//______________________________________________________________________________
+const char *SecretionBehavior::Class_Name()
+{
+   return "bdm::my_tumor::SecretionBehavior";
+}
+
+//______________________________________________________________________________
+const char *SecretionBehavior::ImplFileName()
+{
+   return ::ROOT::GenerateInitInstanceLocal((const ::bdm::my_tumor::SecretionBehavior*)nullptr)->GetImplFileName();
+}
+
+//______________________________________________________________________________
+int SecretionBehavior::ImplFileLine()
+{
+   return ::ROOT::GenerateInitInstanceLocal((const ::bdm::my_tumor::SecretionBehavior*)nullptr)->GetImplFileLine();
+}
+
+//______________________________________________________________________________
+TClass *SecretionBehavior::Dictionary()
+{
+   fgIsA = ::ROOT::GenerateInitInstanceLocal((const ::bdm::my_tumor::SecretionBehavior*)nullptr)->GetClass();
+   return fgIsA;
+}
+
+//______________________________________________________________________________
+TClass *SecretionBehavior::Class()
+{
+   if (!fgIsA.load()) { R__LOCKGUARD(gInterpreterMutex); fgIsA = ::ROOT::GenerateInitInstanceLocal((const ::bdm::my_tumor::SecretionBehavior*)nullptr)->GetClass(); }
+   return fgIsA;
+}
+
+} // namespace bdm::my_tumor
+} // namespace bdm::my_tumor
+namespace bdm {
+   namespace my_tumor {
+//______________________________________________________________________________
+atomic_TClass_ptr ResponseBehavior::fgIsA(nullptr);  // static to hold class pointer
+
+//______________________________________________________________________________
+const char *ResponseBehavior::Class_Name()
+{
+   return "bdm::my_tumor::ResponseBehavior";
+}
+
+//______________________________________________________________________________
+const char *ResponseBehavior::ImplFileName()
+{
+   return ::ROOT::GenerateInitInstanceLocal((const ::bdm::my_tumor::ResponseBehavior*)nullptr)->GetImplFileName();
+}
+
+//______________________________________________________________________________
+int ResponseBehavior::ImplFileLine()
+{
+   return ::ROOT::GenerateInitInstanceLocal((const ::bdm::my_tumor::ResponseBehavior*)nullptr)->GetImplFileLine();
+}
+
+//______________________________________________________________________________
+TClass *ResponseBehavior::Dictionary()
+{
+   fgIsA = ::ROOT::GenerateInitInstanceLocal((const ::bdm::my_tumor::ResponseBehavior*)nullptr)->GetClass();
+   return fgIsA;
+}
+
+//______________________________________________________________________________
+TClass *ResponseBehavior::Class()
+{
+   if (!fgIsA.load()) { R__LOCKGUARD(gInterpreterMutex); fgIsA = ::ROOT::GenerateInitInstanceLocal((const ::bdm::my_tumor::ResponseBehavior*)nullptr)->GetClass(); }
+   return fgIsA;
+}
+
+} // namespace bdm::my_tumor
+} // namespace bdm::my_tumor
+namespace bdm {
+   namespace my_tumor {
+//______________________________________________________________________________
+atomic_TClass_ptr CellInteractionBehavior::fgIsA(nullptr);  // static to hold class pointer
+
+//______________________________________________________________________________
+const char *CellInteractionBehavior::Class_Name()
+{
+   return "bdm::my_tumor::CellInteractionBehavior";
+}
+
+//______________________________________________________________________________
+const char *CellInteractionBehavior::ImplFileName()
+{
+   return ::ROOT::GenerateInitInstanceLocal((const ::bdm::my_tumor::CellInteractionBehavior*)nullptr)->GetImplFileName();
+}
+
+//______________________________________________________________________________
+int CellInteractionBehavior::ImplFileLine()
+{
+   return ::ROOT::GenerateInitInstanceLocal((const ::bdm::my_tumor::CellInteractionBehavior*)nullptr)->GetImplFileLine();
+}
+
+//______________________________________________________________________________
+TClass *CellInteractionBehavior::Dictionary()
+{
+   fgIsA = ::ROOT::GenerateInitInstanceLocal((const ::bdm::my_tumor::CellInteractionBehavior*)nullptr)->GetClass();
+   return fgIsA;
+}
+
+//______________________________________________________________________________
+TClass *CellInteractionBehavior::Class()
+{
+   if (!fgIsA.load()) { R__LOCKGUARD(gInterpreterMutex); fgIsA = ::ROOT::GenerateInitInstanceLocal((const ::bdm::my_tumor::CellInteractionBehavior*)nullptr)->GetClass(); }
+   return fgIsA;
+}
+
+} // namespace bdm::my_tumor
+} // namespace bdm::my_tumor
+namespace bdm {
+//______________________________________________________________________________
+atomic_TClass_ptr BrownianMotion::fgIsA(nullptr);  // static to hold class pointer
+
+//______________________________________________________________________________
+const char *BrownianMotion::Class_Name()
+{
+   return "bdm::BrownianMotion";
+}
+
+//______________________________________________________________________________
+const char *BrownianMotion::ImplFileName()
+{
+   return ::ROOT::GenerateInitInstanceLocal((const ::bdm::BrownianMotion*)nullptr)->GetImplFileName();
+}
+
+//______________________________________________________________________________
+int BrownianMotion::ImplFileLine()
+{
+   return ::ROOT::GenerateInitInstanceLocal((const ::bdm::BrownianMotion*)nullptr)->GetImplFileLine();
+}
+
+//______________________________________________________________________________
+TClass *BrownianMotion::Dictionary()
+{
+   fgIsA = ::ROOT::GenerateInitInstanceLocal((const ::bdm::BrownianMotion*)nullptr)->GetClass();
+   return fgIsA;
+}
+
+//______________________________________________________________________________
+TClass *BrownianMotion::Class()
+{
+   if (!fgIsA.load()) { R__LOCKGUARD(gInterpreterMutex); fgIsA = ::ROOT::GenerateInitInstanceLocal((const ::bdm::BrownianMotion*)nullptr)->GetClass(); }
+   return fgIsA;
+}
+
+} // namespace bdm
 namespace ROOT {
    // Wrapper around operator delete
    static void delete_bdmcLcLFunctorlEunsignedsPlongcOconstsPbdmcLcLSharedDatalEunsignedsPlonggRaNgR(void *p) {
@@ -1258,51 +1475,16 @@ namespace ROOT {
 } // end of namespace ROOT for class ::bdm::VectorField
 
 namespace bdm {
-//______________________________________________________________________________
-void BrownianMotion::Streamer(TBuffer &R__b)
-{
-   // Stream an object of class bdm::BrownianMotion.
-
-   if (R__b.IsReading()) {
-      R__b.ReadClassBuffer(bdm::BrownianMotion::Class(),this);
-   } else {
-      R__b.WriteClassBuffer(bdm::BrownianMotion::Class(),this);
-   }
-}
-
-} // namespace bdm
-namespace ROOT {
-   // Wrappers around operator new
-   static void *new_bdmcLcLBrownianMotion(void *p) {
-      return  p ? ::new(static_cast<::ROOT::Internal::TOperatorNewHelper*>(p)) ::bdm::BrownianMotion : new ::bdm::BrownianMotion;
-   }
-   static void *newArray_bdmcLcLBrownianMotion(Long_t nElements, void *p) {
-      return p ? ::new(static_cast<::ROOT::Internal::TOperatorNewHelper*>(p)) ::bdm::BrownianMotion[nElements] : new ::bdm::BrownianMotion[nElements];
-   }
-   // Wrapper around operator delete
-   static void delete_bdmcLcLBrownianMotion(void *p) {
-      delete (static_cast<::bdm::BrownianMotion*>(p));
-   }
-   static void deleteArray_bdmcLcLBrownianMotion(void *p) {
-      delete [] (static_cast<::bdm::BrownianMotion*>(p));
-   }
-   static void destruct_bdmcLcLBrownianMotion(void *p) {
-      typedef ::bdm::BrownianMotion current_t;
-      (static_cast<current_t*>(p))->~current_t();
-   }
-} // end of namespace ROOT for class ::bdm::BrownianMotion
-
-namespace bdm {
    namespace my_tumor {
 //______________________________________________________________________________
-void MyTumorCell::Streamer(TBuffer &R__b)
+void MyCell::Streamer(TBuffer &R__b)
 {
-   // Stream an object of class bdm::my_tumor::MyTumorCell.
+   // Stream an object of class bdm::my_tumor::MyCell.
 
    if (R__b.IsReading()) {
-      R__b.ReadClassBuffer(bdm::my_tumor::MyTumorCell::Class(),this);
+      R__b.ReadClassBuffer(bdm::my_tumor::MyCell::Class(),this);
    } else {
-      R__b.WriteClassBuffer(bdm::my_tumor::MyTumorCell::Class(),this);
+      R__b.WriteClassBuffer(bdm::my_tumor::MyCell::Class(),this);
    }
 }
 
@@ -1310,21 +1492,21 @@ void MyTumorCell::Streamer(TBuffer &R__b)
 } // namespace bdm::my_tumor
 namespace ROOT {
    // Wrappers around operator new
-   static void *new_bdmcLcLmy_tumorcLcLMyTumorCell(void *p) {
-      return  p ? ::new(static_cast<::ROOT::Internal::TOperatorNewHelper*>(p)) ::bdm::my_tumor::MyTumorCell( (TRootIOCtor *)nullptr ) : new ::bdm::my_tumor::MyTumorCell( (TRootIOCtor *)nullptr );
+   static void *new_bdmcLcLmy_tumorcLcLMyCell(void *p) {
+      return  p ? ::new(static_cast<::ROOT::Internal::TOperatorNewHelper*>(p)) ::bdm::my_tumor::MyCell( (TRootIOCtor *)nullptr ) : new ::bdm::my_tumor::MyCell( (TRootIOCtor *)nullptr );
    }
    // Wrapper around operator delete
-   static void delete_bdmcLcLmy_tumorcLcLMyTumorCell(void *p) {
-      delete (static_cast<::bdm::my_tumor::MyTumorCell*>(p));
+   static void delete_bdmcLcLmy_tumorcLcLMyCell(void *p) {
+      delete (static_cast<::bdm::my_tumor::MyCell*>(p));
    }
-   static void deleteArray_bdmcLcLmy_tumorcLcLMyTumorCell(void *p) {
-      delete [] (static_cast<::bdm::my_tumor::MyTumorCell*>(p));
+   static void deleteArray_bdmcLcLmy_tumorcLcLMyCell(void *p) {
+      delete [] (static_cast<::bdm::my_tumor::MyCell*>(p));
    }
-   static void destruct_bdmcLcLmy_tumorcLcLMyTumorCell(void *p) {
-      typedef ::bdm::my_tumor::MyTumorCell current_t;
+   static void destruct_bdmcLcLmy_tumorcLcLMyCell(void *p) {
+      typedef ::bdm::my_tumor::MyCell current_t;
       (static_cast<current_t*>(p))->~current_t();
    }
-} // end of namespace ROOT for class ::bdm::my_tumor::MyTumorCell
+} // end of namespace ROOT for class ::bdm::my_tumor::MyCell
 
 namespace bdm {
    namespace my_tumor {
@@ -1399,6 +1581,152 @@ namespace ROOT {
       (static_cast<current_t*>(p))->~current_t();
    }
 } // end of namespace ROOT for class ::bdm::my_tumor::TumorBrownianMotion
+
+namespace bdm {
+   namespace my_tumor {
+//______________________________________________________________________________
+void SecretionBehavior::Streamer(TBuffer &R__b)
+{
+   // Stream an object of class bdm::my_tumor::SecretionBehavior.
+
+   if (R__b.IsReading()) {
+      R__b.ReadClassBuffer(bdm::my_tumor::SecretionBehavior::Class(),this);
+   } else {
+      R__b.WriteClassBuffer(bdm::my_tumor::SecretionBehavior::Class(),this);
+   }
+}
+
+} // namespace bdm::my_tumor
+} // namespace bdm::my_tumor
+namespace ROOT {
+   // Wrappers around operator new
+   static void *new_bdmcLcLmy_tumorcLcLSecretionBehavior(void *p) {
+      return  p ? ::new(static_cast<::ROOT::Internal::TOperatorNewHelper*>(p)) ::bdm::my_tumor::SecretionBehavior : new ::bdm::my_tumor::SecretionBehavior;
+   }
+   static void *newArray_bdmcLcLmy_tumorcLcLSecretionBehavior(Long_t nElements, void *p) {
+      return p ? ::new(static_cast<::ROOT::Internal::TOperatorNewHelper*>(p)) ::bdm::my_tumor::SecretionBehavior[nElements] : new ::bdm::my_tumor::SecretionBehavior[nElements];
+   }
+   // Wrapper around operator delete
+   static void delete_bdmcLcLmy_tumorcLcLSecretionBehavior(void *p) {
+      delete (static_cast<::bdm::my_tumor::SecretionBehavior*>(p));
+   }
+   static void deleteArray_bdmcLcLmy_tumorcLcLSecretionBehavior(void *p) {
+      delete [] (static_cast<::bdm::my_tumor::SecretionBehavior*>(p));
+   }
+   static void destruct_bdmcLcLmy_tumorcLcLSecretionBehavior(void *p) {
+      typedef ::bdm::my_tumor::SecretionBehavior current_t;
+      (static_cast<current_t*>(p))->~current_t();
+   }
+} // end of namespace ROOT for class ::bdm::my_tumor::SecretionBehavior
+
+namespace bdm {
+   namespace my_tumor {
+//______________________________________________________________________________
+void ResponseBehavior::Streamer(TBuffer &R__b)
+{
+   // Stream an object of class bdm::my_tumor::ResponseBehavior.
+
+   if (R__b.IsReading()) {
+      R__b.ReadClassBuffer(bdm::my_tumor::ResponseBehavior::Class(),this);
+   } else {
+      R__b.WriteClassBuffer(bdm::my_tumor::ResponseBehavior::Class(),this);
+   }
+}
+
+} // namespace bdm::my_tumor
+} // namespace bdm::my_tumor
+namespace ROOT {
+   // Wrappers around operator new
+   static void *new_bdmcLcLmy_tumorcLcLResponseBehavior(void *p) {
+      return  p ? ::new(static_cast<::ROOT::Internal::TOperatorNewHelper*>(p)) ::bdm::my_tumor::ResponseBehavior : new ::bdm::my_tumor::ResponseBehavior;
+   }
+   static void *newArray_bdmcLcLmy_tumorcLcLResponseBehavior(Long_t nElements, void *p) {
+      return p ? ::new(static_cast<::ROOT::Internal::TOperatorNewHelper*>(p)) ::bdm::my_tumor::ResponseBehavior[nElements] : new ::bdm::my_tumor::ResponseBehavior[nElements];
+   }
+   // Wrapper around operator delete
+   static void delete_bdmcLcLmy_tumorcLcLResponseBehavior(void *p) {
+      delete (static_cast<::bdm::my_tumor::ResponseBehavior*>(p));
+   }
+   static void deleteArray_bdmcLcLmy_tumorcLcLResponseBehavior(void *p) {
+      delete [] (static_cast<::bdm::my_tumor::ResponseBehavior*>(p));
+   }
+   static void destruct_bdmcLcLmy_tumorcLcLResponseBehavior(void *p) {
+      typedef ::bdm::my_tumor::ResponseBehavior current_t;
+      (static_cast<current_t*>(p))->~current_t();
+   }
+} // end of namespace ROOT for class ::bdm::my_tumor::ResponseBehavior
+
+namespace bdm {
+   namespace my_tumor {
+//______________________________________________________________________________
+void CellInteractionBehavior::Streamer(TBuffer &R__b)
+{
+   // Stream an object of class bdm::my_tumor::CellInteractionBehavior.
+
+   if (R__b.IsReading()) {
+      R__b.ReadClassBuffer(bdm::my_tumor::CellInteractionBehavior::Class(),this);
+   } else {
+      R__b.WriteClassBuffer(bdm::my_tumor::CellInteractionBehavior::Class(),this);
+   }
+}
+
+} // namespace bdm::my_tumor
+} // namespace bdm::my_tumor
+namespace ROOT {
+   // Wrappers around operator new
+   static void *new_bdmcLcLmy_tumorcLcLCellInteractionBehavior(void *p) {
+      return  p ? ::new(static_cast<::ROOT::Internal::TOperatorNewHelper*>(p)) ::bdm::my_tumor::CellInteractionBehavior : new ::bdm::my_tumor::CellInteractionBehavior;
+   }
+   static void *newArray_bdmcLcLmy_tumorcLcLCellInteractionBehavior(Long_t nElements, void *p) {
+      return p ? ::new(static_cast<::ROOT::Internal::TOperatorNewHelper*>(p)) ::bdm::my_tumor::CellInteractionBehavior[nElements] : new ::bdm::my_tumor::CellInteractionBehavior[nElements];
+   }
+   // Wrapper around operator delete
+   static void delete_bdmcLcLmy_tumorcLcLCellInteractionBehavior(void *p) {
+      delete (static_cast<::bdm::my_tumor::CellInteractionBehavior*>(p));
+   }
+   static void deleteArray_bdmcLcLmy_tumorcLcLCellInteractionBehavior(void *p) {
+      delete [] (static_cast<::bdm::my_tumor::CellInteractionBehavior*>(p));
+   }
+   static void destruct_bdmcLcLmy_tumorcLcLCellInteractionBehavior(void *p) {
+      typedef ::bdm::my_tumor::CellInteractionBehavior current_t;
+      (static_cast<current_t*>(p))->~current_t();
+   }
+} // end of namespace ROOT for class ::bdm::my_tumor::CellInteractionBehavior
+
+namespace bdm {
+//______________________________________________________________________________
+void BrownianMotion::Streamer(TBuffer &R__b)
+{
+   // Stream an object of class bdm::BrownianMotion.
+
+   if (R__b.IsReading()) {
+      R__b.ReadClassBuffer(bdm::BrownianMotion::Class(),this);
+   } else {
+      R__b.WriteClassBuffer(bdm::BrownianMotion::Class(),this);
+   }
+}
+
+} // namespace bdm
+namespace ROOT {
+   // Wrappers around operator new
+   static void *new_bdmcLcLBrownianMotion(void *p) {
+      return  p ? ::new(static_cast<::ROOT::Internal::TOperatorNewHelper*>(p)) ::bdm::BrownianMotion : new ::bdm::BrownianMotion;
+   }
+   static void *newArray_bdmcLcLBrownianMotion(Long_t nElements, void *p) {
+      return p ? ::new(static_cast<::ROOT::Internal::TOperatorNewHelper*>(p)) ::bdm::BrownianMotion[nElements] : new ::bdm::BrownianMotion[nElements];
+   }
+   // Wrapper around operator delete
+   static void delete_bdmcLcLBrownianMotion(void *p) {
+      delete (static_cast<::bdm::BrownianMotion*>(p));
+   }
+   static void deleteArray_bdmcLcLBrownianMotion(void *p) {
+      delete [] (static_cast<::bdm::BrownianMotion*>(p));
+   }
+   static void destruct_bdmcLcLBrownianMotion(void *p) {
+      typedef ::bdm::BrownianMotion current_t;
+      (static_cast<current_t*>(p))->~current_t();
+   }
+} // end of namespace ROOT for class ::bdm::BrownianMotion
 
 namespace ROOT {
    static TClass *vectorlEbdmcLcLSpinlockmUgR_Dictionary();
@@ -2804,10 +3132,13 @@ namespace bdm{template <typename T> struct __attribute__((annotate("$clingAutolo
 }
 namespace bdm{class __attribute__((annotate("$clingAutoload$core/util/progress_bar.h")))  __attribute__((annotate("$clingAutoload$biodynamo.h")))  ProgressBar;}
 namespace bdm{class __attribute__((annotate("$clingAutoload$core/diffusion/continuum_interface.h")))  __attribute__((annotate("$clingAutoload$biodynamo.h")))  VectorField;}
-namespace bdm{struct BrownianMotion;}
-namespace bdm{namespace my_tumor{class MyTumorCell;}}
+namespace bdm{namespace my_tumor{class __attribute__((annotate("$clingAutoload$my_cell.h")))  MyCell;}}
 namespace bdm{namespace my_tumor{struct Growth;}}
 namespace bdm{namespace my_tumor{struct TumorBrownianMotion;}}
+namespace bdm{namespace my_tumor{struct SecretionBehavior;}}
+namespace bdm{namespace my_tumor{struct ResponseBehavior;}}
+namespace bdm{namespace my_tumor{struct CellInteractionBehavior;}}
+namespace bdm{struct BrownianMotion;}
 )DICTFWDDCLS";
     static const char* payloadCode = R"DICTPAYLOAD(
 #line 1 "libmy_tumor_dict dictionary payload"
@@ -2827,7 +3158,213 @@ namespace bdm{namespace my_tumor{struct TumorBrownianMotion;}}
 
 #define _BACKWARD_BACKWARD_WARNING_H
 // Inline headers
-#ifndef BROWNIAN_H_
+#ifndef BEHAVIORS_H_
+#define BEHAVIORS_H_
+
+#include "biodynamo.h"
+#include "my_cell.h"
+#include "my_diffusion_grid.h" 
+
+namespace bdm {
+namespace my_tumor {
+
+struct Growth : public Behavior {
+  BDM_BEHAVIOR_HEADER(Growth, Behavior, 1);
+
+  Growth() { AlwaysCopyToNew(); }
+  virtual ~Growth() {}
+
+  void Run(Agent* agent) override {
+    auto* cell = dynamic_cast<MyCell*>(agent);
+    if (!cell) return;
+
+    auto* random = Simulation::GetActive()->GetRandom();
+    if (cell->GetDiameter() < 8) {
+      double growth_rate = (cell->GetCellType() == CellType::Tumor) ? 500 : 300;
+      cell->ChangeVolume(growth_rate);
+    } else {
+      double division_prob = (cell->GetCellType() == CellType::Tumor) ? 0.8 : 0.4;
+      if (random->Uniform(0, 1) < division_prob) {
+        cell->Divide();
+      }
+    }
+  }
+};
+
+struct TumorBrownianMotion : public Behavior {
+  BDM_BEHAVIOR_HEADER(TumorBrownianMotion, Behavior, 1);
+
+  // Default constructor with default diffusion coefficients.
+  TumorBrownianMotion() : TumorBrownianMotion(0.75, 0.45) {}
+
+  TumorBrownianMotion(double tumor_diff, double healthy_diff)
+      : tumor_diffusion_(tumor_diff), healthy_diffusion_(healthy_diff) {
+    AlwaysCopyToNew();
+  }
+  virtual ~TumorBrownianMotion() {}
+
+  void Run(Agent* agent) override {
+    auto* cell = dynamic_cast<MyCell*>(agent);
+    if (!cell) return;
+
+    auto* random = Simulation::GetActive()->GetRandom();
+    double coeff = (cell->GetCellType() == CellType::Tumor) ? tumor_diffusion_ : healthy_diffusion_;
+    Real3 displacement = random->template UniformArray<3>(-coeff, coeff);
+    cell->UpdatePosition(displacement);
+  }
+
+ private:
+  double tumor_diffusion_;
+  double healthy_diffusion_;
+};
+
+struct SecretionBehavior : public Behavior {
+  BDM_BEHAVIOR_HEADER(SecretionBehavior, Behavior, 1);
+
+  SecretionBehavior() { AlwaysCopyToNew(); }
+  virtual ~SecretionBehavior() {}
+
+  void Run(Agent* agent) override {
+    auto* cell = dynamic_cast<MyCell*>(agent);
+    if (!cell) return;
+
+    Real3 pos = cell->GetPosition();
+
+    switch (cell->GetCellType()) {
+      case CellType::Tumor:
+        // Increase TGF-beta concentration for tumor cells.
+        IncreaseConcentrationAt("TGF-beta", pos, 0.1);
+        break;
+      case CellType::Fibroblast: {
+        real_t local_tgf = GetConcentrationAt("TGF-beta", pos);
+        if (local_tgf > 0.5) {
+          IncreaseConcentrationAt("MMPs", pos, 0.05);
+        }
+        break;
+      }
+      default:
+        break;
+    }
+  }
+};
+
+struct ResponseBehavior : public Behavior {
+  BDM_BEHAVIOR_HEADER(ResponseBehavior, Behavior, 1);
+
+  ResponseBehavior() { AlwaysCopyToNew(); }
+  virtual ~ResponseBehavior() {}
+
+  void Run(Agent* agent) override {
+    auto* cell = dynamic_cast<MyCell*>(agent);
+    if (!cell) return;
+
+    Real3 pos = cell->GetPosition();
+    real_t local_tgf = GetConcentrationAt("TGF-beta", pos);
+
+    if (cell->GetCellType() == CellType::HealthyEpithelial && local_tgf > 1.0) {
+      // Example: Trigger epithelial-to-mesenchymal transition (EMT).
+      cell->SetCellType(CellType::Tumor);
+    }
+  }
+};
+
+// New behavior for cell-cell interactions
+struct CellInteractionBehavior : public Behavior {
+  BDM_BEHAVIOR_HEADER(CellInteractionBehavior, Behavior, 1);
+
+  CellInteractionBehavior() { AlwaysCopyToNew(); }
+  virtual ~CellInteractionBehavior() {}
+
+  void Run(Agent* agent) override {
+    auto* cell = dynamic_cast<MyCell*>(agent);
+    if (!cell) return;
+
+    auto* sim = Simulation::GetActive();
+    auto* random = sim->GetRandom();
+    
+    // Manual neighborhood lookup
+    std::vector<Agent*> neighbors;
+    real_t radius = 10.0; // Interaction radius
+    
+    // Use the ForEachAgent method instead
+    auto* rm = sim->GetResourceManager();
+    rm->ForEachAgent([&](Agent* neighbor) {
+      if (neighbor == cell) return; // Skip self
+      
+      // Calculate distance
+      Real3 pos_diff = cell->GetPosition() - neighbor->GetPosition();
+      if (pos_diff.Norm() <= radius) {
+        neighbors.push_back(neighbor);
+      }
+    });
+    
+    int fibroblast_count = 0;
+    int tumor_count = 0;
+    int immune_count = 0;
+    
+    // Count different cell types in neighborhood
+    for (auto* neighbor : neighbors) {
+      if (auto* other_cell = dynamic_cast<MyCell*>(neighbor)) {
+        switch (other_cell->GetCellType()) {
+          case CellType::Fibroblast:
+            fibroblast_count++;
+            break;
+          case CellType::Tumor:
+            tumor_count++;
+            break;
+          case CellType::Immune:
+            immune_count++;
+            break;
+          default:
+            break;
+        }
+      }
+    }
+    
+    // Cell behaviors based on neighborhood composition
+    switch (cell->GetCellType()) {
+      case CellType::HealthyEpithelial:
+        // Epithelial cells have contact inhibition - reduce growth in crowded areas
+        if (neighbors.size() > 5) {
+          cell->SetDiameter(std::min(cell->GetDiameter(), 7.0));
+        }
+        
+        // Higher chance to transform to tumor if surrounded by tumor cells
+        if (tumor_count > 2 && random->Uniform(0, 1) < 0.05) {
+          cell->SetCellType(CellType::Tumor);
+        }
+        break;
+        
+      case CellType::Tumor:
+        // Tumor cells grow faster in presence of fibroblasts (CAF effect)
+        if (fibroblast_count > 1) {
+          cell->ChangeVolume(100); // Additional growth boost
+        }
+        
+        // Tumor cells might be killed by immune cells
+        if (immune_count > 2 && random->Uniform(0, 1) < 0.1) {
+          cell->RemoveFromSimulation();
+        }
+        break;
+        
+      case CellType::Fibroblast:
+        // Fibroblasts might transform to cancer-associated fibroblasts (CAFs) near tumor cells
+        if (tumor_count > 1 && random->Uniform(0, 1) < 0.1) {
+          // This would be a new cell type; for now, we can just mark it with a different color
+          cell->SetCellColor(6); // Special color for CAFs
+        }
+        break;
+        
+      default:
+        break;
+    }
+  }
+};
+
+}  // namespace my_tumor
+}  // namespace bdm
+
+#endif  // BEHAVIORS_H_#ifndef BROWNIAN_H_
 #define BROWNIAN_H_
 
 #include "biodynamo.h"
@@ -2877,137 +3414,145 @@ struct BrownianMotion : public Behavior {
 
 }  // namespace bdm
 
-#endif  // BROWNIAN_H_#ifndef MY_TUMOR_H_
-#define MY_TUMOR_H_
+#endif  // BROWNIAN_H_#ifndef MY_CELL_H_
+#define MY_CELL_H_
 
 #include "biodynamo.h"
-#include "brownian.h"
 
 namespace bdm {
 namespace my_tumor {
 
-// -----------------------------------------------------------------------------
-// MyTumorCell: a custom cell that models tumor and healthy cells
-// -----------------------------------------------------------------------------
-class MyTumorCell : public Cell {
-  BDM_AGENT_HEADER(MyTumorCell, Cell, 1);
+enum class CellType {
+  HealthyEpithelial,
+  Tumor,
+  Fibroblast,
+  Immune,
+  Endothelial
+  // Add more types as needed
+};
+
+class MyCell : public Cell {
+  BDM_AGENT_HEADER(MyCell, Cell, 1);
 
  public:
-  MyTumorCell() : is_tumor_(false), cell_color_(0) {}
-  
-  explicit MyTumorCell(const Real3& position) : Base(position), 
-                                                is_tumor_(false), 
-                                                cell_color_(0) {}
-  
-  virtual ~MyTumorCell() {}
+  MyCell() : cell_type_(CellType::HealthyEpithelial), cell_color_(0) {}
+  explicit MyCell(const Real3& position)
+      : Base(position), cell_type_(CellType::HealthyEpithelial), cell_color_(0) {}
+  virtual ~MyCell() {}
 
-  // Copy constructor for cell division events
-  MyTumorCell(const MyTumorCell& other) : Base(other), 
-                                          is_tumor_(other.is_tumor_), 
-                                          cell_color_(other.cell_color_) {}
+  // Copy constructor for division
+  MyCell(const MyCell& other)
+      : Base(other), cell_type_(other.cell_type_), cell_color_(other.cell_color_) {}
 
-  // Initialize during division
   void Initialize(const NewAgentEvent& event) override {
     Base::Initialize(event);
-    if (auto* mother = dynamic_cast<MyTumorCell*>(event.existing_agent)) {
-      is_tumor_ = mother->is_tumor_;
+    if (auto* mother = dynamic_cast<MyCell*>(event.existing_agent)) {
+      cell_type_ = mother->cell_type_;
       cell_color_ = mother->cell_color_;
     }
   }
 
   // Getters and setters
-  bool IsTumor() const { return is_tumor_; }
-  void SetTumor(bool is_tumor) { 
-    is_tumor_ = is_tumor; 
-    // Set color based on cell type
-    cell_color_ = is_tumor ? 2 : 1;  // Tumor cells are red (2), healthy cells are blue (1)
+  void SetCellType(CellType type) {
+    cell_type_ = type;
+    UpdateCellColor();
   }
+  CellType GetCellType() const { return cell_type_; }
 
-  // Cell color for visualization
-  void SetCellColor(int cell_color) { cell_color_ = cell_color; }
+  void SetCellColor(int color) { cell_color_ = color; }
   int GetCellColor() const { return cell_color_; }
 
  private:
-  bool is_tumor_;   // Whether this is a tumor cell
-  int cell_color_;  // Cell color for visualization
-};
-
-// -----------------------------------------------------------------------------
-// Growth behavior: simple behavior for cell growth and division
-// -----------------------------------------------------------------------------
-struct Growth : public Behavior {
-  BDM_BEHAVIOR_HEADER(Growth, Behavior, 1);
-
-  Growth() { AlwaysCopyToNew(); }
-  virtual ~Growth() {}
-
-  void Run(Agent* agent) override {
-    if (auto* cell = dynamic_cast<MyTumorCell*>(agent)) {
-      auto* random = Simulation::GetActive()->GetRandom();
-      
-      // Grow the cell until it reaches a given size
-      if (cell->GetDiameter() < 8) {
-        // Tumor cells grow faster than healthy cells
-        double growth_rate = cell->IsTumor() ? 500 : 300;
-        cell->ChangeVolume(growth_rate);
-        
-        // No random movement during growth - movement will be controlled solely by BrownianMotion
-      } else {
-        // Division probability is higher for tumor cells
-        double division_probability = cell->IsTumor() ? 0.8 : 0.4;
-        if (random->Uniform(0, 1) < division_probability) {
-          cell->Divide();
-        }
-      }
+  void UpdateCellColor() {
+    switch (cell_type_) {
+      case CellType::Tumor: cell_color_ = 2; break;           // Red
+      case CellType::HealthyEpithelial: cell_color_ = 1; break; // Blue
+      case CellType::Fibroblast: cell_color_ = 3; break;      // Green
+      case CellType::Immune: cell_color_ = 4; break;         // Yellow
+      case CellType::Endothelial: cell_color_ = 5; break;    // Purple
+      default: cell_color_ = 0;                              // Default
     }
   }
+
+  CellType cell_type_;
+  int cell_color_;
 };
 
-// Custom Brownian motion behavior that handles tumor and healthy cells differently
-struct TumorBrownianMotion : public Behavior {
-  BDM_BEHAVIOR_HEADER(TumorBrownianMotion, Behavior, 1);
+}  // namespace my_tumor
+}  // namespace bdm
 
-  TumorBrownianMotion() 
-    : tumor_diffusion_(0), healthy_diffusion_(0) {
-    AlwaysCopyToNew();
+#endif  // MY_CELL_H_#ifndef MY_DIFFUSION_GRID_H_
+#define MY_DIFFUSION_GRID_H_
+
+#include "biodynamo.h"
+
+namespace bdm {
+namespace my_tumor {
+
+inline void DefineSubstances(Simulation* simulation) {
+  // Initialize with a higher resolution (20 instead of 10) for better coverage
+  ModelInitializer::DefineSubstance(0, "TGF-beta", 0.1, 0.01, 20);
+  ModelInitializer::DefineSubstance(1, "MMPs", 0.15, 0.02, 20);
+}
+
+// Helper functions with position bounds checking
+inline void IncreaseConcentrationAt(const std::string& substance_name, const Real3& position, real_t value) {
+  auto* rm = Simulation::GetActive()->GetResourceManager();
+  auto* grid = rm->GetDiffusionGrid(substance_name);
+  if (grid) {
+    // Check if position is within simulation bounds
+    auto* param = Simulation::GetActive()->GetParam();
+    Real3 clamped_pos = position;
+    for (int i = 0; i < 3; i++) {
+      clamped_pos[i] = std::clamp(position[i], 
+                                 param->min_bound + 1.0, 
+                                 param->max_bound - 1.0);
+    }
+    
+    // Now safely modify the concentration
+    grid->ChangeConcentrationBy(clamped_pos, value);
   }
-  
-  TumorBrownianMotion(double tumor_diffusion, double healthy_diffusion) 
-    : tumor_diffusion_(tumor_diffusion), healthy_diffusion_(healthy_diffusion) {
-    AlwaysCopyToNew();
+}
+
+inline real_t GetConcentrationAt(const std::string& substance_name, const Real3& position) {
+  auto* rm = Simulation::GetActive()->GetResourceManager();
+  auto* grid = rm->GetDiffusionGrid(substance_name);
+  if (grid) {
+    // Check if position is within simulation bounds
+    auto* param = Simulation::GetActive()->GetParam();
+    Real3 clamped_pos = position;
+    for (int i = 0; i < 3; i++) {
+      clamped_pos[i] = std::clamp(position[i], 
+                                 param->min_bound + 1.0, 
+                                 param->max_bound - 1.0);
+    }
+    
+    return grid->GetValue(clamped_pos);
   }
-  
-  virtual ~TumorBrownianMotion() {}
+  return 0.0;
+}
 
-  void Run(Agent* agent) override {
-    auto* cell = dynamic_cast<MyTumorCell*>(agent);
-    if (!cell) return;
-    
-    auto* random = Simulation::GetActive()->GetRandom();
-    
-    // Select diffusion coefficient based on cell type
-    double coefficient = cell->IsTumor() ? tumor_diffusion_ : healthy_diffusion_;
-    
-    // Create random displacement vector
-    Real3 displacement = random->template UniformArray<3>(-coefficient, coefficient);
-    
-    // Apply the displacement to the cell
-    cell->UpdatePosition(displacement);
-  }
+}  // namespace my_tumor
+}  // namespace bdm
 
-  double tumor_diffusion_;    // Diffusion coefficient for tumor cells
-  double healthy_diffusion_;  // Diffusion coefficient for healthy cells
-};
+#endif  // MY_DIFFUSION_GRID_H_#ifndef MY_TUMOR_H_
+#define MY_TUMOR_H_
 
-// -----------------------------------------------------------------------------
-// Simulate(): set up and run the simulation.
-// -----------------------------------------------------------------------------
+#include "biodynamo.h"
+#include "my_cell.h"
+#include "behaviors.h"
+#include "substances.h"
+
+namespace bdm {
+namespace my_tumor {
+
+
+
 inline int Simulate(int argc, const char** argv) {
-  // Define simulation parameters
   auto set_param = [](Param* param) {
     param->bound_space = Param::BoundSpaceMode::kClosed;
     param->min_bound = 0;
-    param->max_bound = 100;  // Cube: 100 x 100 x 100
+    param->max_bound = 100;
   };
 
   Simulation simulation(argc, argv, set_param);
@@ -3015,81 +3560,126 @@ inline int Simulate(int argc, const char** argv) {
   auto* param = simulation.GetParam();
   auto* myrand = simulation.GetRandom();
 
-  // Set Brownian motion parameters
-  double tumor_diffusion = 0.75;    // Diffusion coefficient for tumor cells
-  double healthy_diffusion = 0.45;  // Diffusion coefficient for healthy cells
+  // Define substances
+  DefineSubstances(&simulation);
 
-  // Create a population of healthy cells
-  size_t nb_of_healthy_cells = 100;
-  for (size_t i = 0; i < nb_of_healthy_cells; ++i) {
-    Real3 position = { myrand->Uniform(param->min_bound, param->max_bound),
-                       myrand->Uniform(param->min_bound, param->max_bound),
-                       myrand->Uniform(param->min_bound, param->max_bound) };
-    
-    // Create a healthy cell
-    MyTumorCell* cell = new MyTumorCell(position);
+  // Brownian motion parameters
+  double tumor_diff = 0.75;
+  double healthy_diff = 0.45;
+
+  // Create cells with layered types - use fewer cells initially for testing
+  size_t total_cells = 50;  // Reduced from 100
+  for (size_t i = 0; i < total_cells; ++i) {
+    // Keep cells away from boundaries to avoid diffusion grid issues
+    Real3 pos = {myrand->Uniform(5, 95), myrand->Uniform(5, 95), myrand->Uniform(5, 95)};
+    MyCell* cell = new MyCell(pos);
     cell->SetDiameter(5);
-    cell->SetTumor(false);  // This is a healthy cell
+
+    // Assign cell type based on y-coordinate (layers)
+    real_t y = pos[1];
+    if (y < 30) {
+      cell->SetCellType(CellType::Fibroblast);
+    } else if (y < 60) {
+      cell->SetCellType(CellType::HealthyEpithelial);
+    } else {
+      cell->SetCellType(CellType::Endothelial);
+    }
+
+    // Add behaviors to all cells
     cell->AddBehavior(new Growth());
-    
-    // Add our custom Brownian motion with cell type specific diffusion coefficients
-    cell->AddBehavior(new TumorBrownianMotion(tumor_diffusion, healthy_diffusion));
-    
+    cell->AddBehavior(new TumorBrownianMotion(tumor_diff, healthy_diff));
+    cell->AddBehavior(new SecretionBehavior());
+    cell->AddBehavior(new ResponseBehavior());
+    cell->AddBehavior(new CellInteractionBehavior());
     ctxt->AddAgent(cell);
   }
 
-  // Create multiple tumor cells
-  size_t nb_of_tumor_cells = 10; // Change this number to adjust how many tumor cells to create
-
-  // Create tumor cells in random positions clustered near center
-  for (size_t i = 0; i < nb_of_tumor_cells; ++i) {
-    // Generate random position for tumor cell (clustered near center)
-    Real3 position = { 
-      myrand->Uniform(40, 60),   // X coordinate (clustered near center)
-      myrand->Uniform(40, 60),   // Y coordinate (clustered near center)
-      myrand->Uniform(40, 60)    // Z coordinate (clustered near center)
-    };
-    
-    // Create a tumor cell
-    MyTumorCell* tumor_cell = new MyTumorCell(position);
-    tumor_cell->SetDiameter(6.5);
-    tumor_cell->SetTumor(true);  // This is a tumor cell
-    tumor_cell->AddBehavior(new Growth());
-    
-    // Add our custom Brownian motion with cell type specific diffusion coefficients
-    tumor_cell->AddBehavior(new TumorBrownianMotion(tumor_diffusion, healthy_diffusion));
-    
-    ctxt->AddAgent(tumor_cell);
+  // Add some immune cells randomly - keep away from boundaries
+  size_t immune_cells = 5;  // Reduced from 10
+  for (size_t i = 0; i < immune_cells; ++i) {
+    Real3 pos = {myrand->Uniform(10, 90), myrand->Uniform(10, 90), myrand->Uniform(10, 90)};
+    MyCell* immune = new MyCell(pos);
+    immune->SetDiameter(4.5); // Immune cells are smaller
+    immune->SetCellType(CellType::Immune);
+    immune->AddBehavior(new TumorBrownianMotion(0.8, 0.8)); // Slightly faster than 1.0
+    immune->AddBehavior(new CellInteractionBehavior());
+    ctxt->AddAgent(immune);
   }
 
-  // Run the simulation for 100 time steps
-  simulation.GetScheduler()->Simulate(300);
+  // Add tumor cells near center - well away from boundaries
+  size_t tumor_cells = 3;
+  for (size_t i = 0; i < tumor_cells; ++i) {
+    Real3 pos = {myrand->Uniform(45, 55), myrand->Uniform(45, 55), myrand->Uniform(45, 55)};
+    MyCell* tumor = new MyCell(pos);
+    tumor->SetDiameter(6.5);
+    tumor->SetCellType(CellType::Tumor);
+    tumor->AddBehavior(new Growth());
+    tumor->AddBehavior(new TumorBrownianMotion(tumor_diff, healthy_diff));
+    tumor->AddBehavior(new SecretionBehavior());
+    tumor->AddBehavior(new ResponseBehavior());
+    tumor->AddBehavior(new CellInteractionBehavior());
+    ctxt->AddAgent(tumor);
+  }
 
-  // Count cells at the end
-  size_t healthy_count = 0;
-  size_t tumor_count = 0;
+  // Run simulation with outputs at regular intervals - use smaller step size
+  auto* scheduler = simulation.GetScheduler();
   
-  simulation.GetResourceManager()->ForEachAgent([&](Agent* agent) {
-    if (auto* cell = dynamic_cast<MyTumorCell*>(agent)) {
-      if (cell->IsTumor()) {
-        tumor_count++;
-      } else {
-        healthy_count++;
+  // Output initial state
+  std::cout << "Initial setup complete. Starting simulation..." << std::endl;
+  
+  // Define step size (number of steps per interval)
+  int total_steps = 150;  // Reduced from 300
+  int intervals = 6;
+  int step_size = total_steps / intervals;
+  
+  // Run simulation in intervals and output status
+  for (int i = 1; i <= intervals; i++) {
+    scheduler->Simulate(step_size);
+    
+    // Count cells of each type
+    std::map<CellType, size_t> counts;
+    simulation.GetResourceManager()->ForEachAgent([&](Agent* agent) {
+      if (auto* cell = dynamic_cast<MyCell*>(agent)) {
+        counts[cell->GetCellType()]++;
       }
+    });
+    
+    // Output progress
+    std::cout << "Simulation " << (i * step_size) << "/" << total_steps << " steps completed." << std::endl;
+    std::cout << "Current cell counts:" << std::endl;
+    for (const auto& [type, count] : counts) {
+      std::cout << "  Type " << static_cast<int>(type) << ": " << count << std::endl;
     }
-  });
-  
+  }
+
   std::cout << "Simulation completed successfully!" << std::endl;
-  std::cout << "Final counts - Healthy cells: " << healthy_count 
-            << ", Tumor cells: " << tumor_count << std::endl;
-  
   return 0;
 }
 
 }  // namespace my_tumor
 }  // namespace bdm
 
-#endif  // MY_TUMOR_H_
+#endif  // MY_TUMOR_H_#ifndef SUBSTANCES_H_
+#define SUBSTANCES_H_
+
+#include "biodynamo.h"
+#include "my_diffusion_grid.h"  // For our helper functions
+
+namespace bdm {
+namespace my_tumor {
+
+// The DefineSubstances function is now in my_diffusion_grid.h
+
+// Define substance enum for easier reference
+enum Substances {
+  kTGFBeta = 0,
+  kMMPs = 1
+};
+
+}  // namespace my_tumor
+}  // namespace bdm
+
+#endif  // SUBSTANCES_H_
 #undef  _BACKWARD_BACKWARD_WARNING_H
 )DICTPAYLOAD";
     static const char* classesHeaders[] = {
@@ -3115,8 +3705,11 @@ inline int Simulate(int argc, const char** argv) {
 "bdm::SumReduction<unsigned long>", payloadCode, "@",
 "bdm::UnorderedFlatmap<TClass*,vector<bdm::Agent*> >", payloadCode, "@",
 "bdm::VectorField", payloadCode, "@",
+"bdm::my_tumor::CellInteractionBehavior", payloadCode, "@",
 "bdm::my_tumor::Growth", payloadCode, "@",
-"bdm::my_tumor::MyTumorCell", payloadCode, "@",
+"bdm::my_tumor::MyCell", payloadCode, "@",
+"bdm::my_tumor::ResponseBehavior", payloadCode, "@",
+"bdm::my_tumor::SecretionBehavior", payloadCode, "@",
 "bdm::my_tumor::TumorBrownianMotion", payloadCode, "@",
 nullptr
 };

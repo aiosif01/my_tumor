@@ -1,0 +1,12 @@
+{
+  "simulation": {
+    "name":"N3bdm36AgentTest_AddAgentsToSimulation_TestE",
+    "result_dir":"output/N3bdm36AgentTest_AddAgentsToSimulation_TestE"
+  },
+  "agents": [
+  ],
+  "extracellular_substances": [
+
+  ],
+  "insitu_script_arguments": ""
+}

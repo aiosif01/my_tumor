@@ -76,20 +76,28 @@ include CMakeFiles/my_tumor.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/my_tumor.dir/flags.make
 
+libmy_tumor_dict.cc: ../src/behaviors.h
 libmy_tumor_dict.cc: ../src/brownian.h
+libmy_tumor_dict.cc: ../src/my_cell.h
+libmy_tumor_dict.cc: ../src/my_diffusion_grid.h
 libmy_tumor_dict.cc: ../src/my_tumor.h
+libmy_tumor_dict.cc: ../src/substances.h
 libmy_tumor_dict.cc: /home/ale/biodynamo-v1.05.125/share/cmake/selection.xml
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/ale/my_tumor/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating libmy_tumor_dict.cc, libmy_tumor_dict_rdict.pcm"
-	/home/ale/biodynamo-v1.05.125/third_party/root/bin/genreflex /home/ale/my_tumor/src/brownian.h /home/ale/my_tumor/src/my_tumor.h -o /home/ale/my_tumor/build/libmy_tumor_dict.cc --select=/home/ale/biodynamo-v1.05.125/share/cmake/selection.xml --noIncludePaths -I/usr/lib/x86_64-linux-gnu/openmpi/include -I/usr/lib/x86_64-linux-gnu/openmpi/include/openmpi -I/usr/include -I/home/ale/biodynamo-v1.05.125/third_party/root/include -I/home/ale/my_tumor/build/omp -I/home/ale/biodynamo-v1.05.125/include -I/home/ale/biodynamo-v1.05.125/include/optim -I/home/ale/my_tumor/src -DBDMSYS="/home/ale/biodynamo-v1.05.125" -DUSE_MPI -DUSE_NUMA -DUSE_DICT
+	/home/ale/biodynamo-v1.05.125/third_party/root/bin/genreflex /home/ale/my_tumor/src/behaviors.h /home/ale/my_tumor/src/brownian.h /home/ale/my_tumor/src/my_cell.h /home/ale/my_tumor/src/my_diffusion_grid.h /home/ale/my_tumor/src/my_tumor.h /home/ale/my_tumor/src/substances.h -o /home/ale/my_tumor/build/libmy_tumor_dict.cc --select=/home/ale/biodynamo-v1.05.125/share/cmake/selection.xml --noIncludePaths -I/usr/lib/x86_64-linux-gnu/openmpi/include -I/usr/lib/x86_64-linux-gnu/openmpi/include/openmpi -I/usr/include -I/home/ale/biodynamo-v1.05.125/third_party/root/include -I/home/ale/my_tumor/build/omp -I/home/ale/biodynamo-v1.05.125/include -I/home/ale/biodynamo-v1.05.125/include/optim -I/home/ale/my_tumor/src -DBDMSYS="/home/ale/biodynamo-v1.05.125" -DUSE_MPI -DUSE_NUMA -DUSE_DICT
 
 libmy_tumor_dict_rdict.pcm: libmy_tumor_dict.cc
 	@$(CMAKE_COMMAND) -E touch_nocreate libmy_tumor_dict_rdict.pcm
 
+libmy_tumor_bdm_dict.cc: ../src/behaviors.h
 libmy_tumor_bdm_dict.cc: ../src/brownian.h
+libmy_tumor_bdm_dict.cc: ../src/my_cell.h
+libmy_tumor_bdm_dict.cc: ../src/my_diffusion_grid.h
 libmy_tumor_bdm_dict.cc: ../src/my_tumor.h
+libmy_tumor_bdm_dict.cc: ../src/substances.h
 libmy_tumor_bdm_dict.cc: /home/ale/biodynamo-v1.05.125/bin/bdm-dictionary
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/ale/my_tumor/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating libmy_tumor_bdm_dict.cc"
-	/home/ale/biodynamo-v1.05.125/bin/bdm-dictionary --out-of-source --output /home/ale/my_tumor/build/libmy_tumor_bdm_dict.cc --include-dirs /usr/lib/x86_64-linux-gnu/openmpi/include /usr/lib/x86_64-linux-gnu/openmpi/include/openmpi /usr/include /home/ale/biodynamo-v1.05.125/third_party/root/include /home/ale/my_tumor/build/omp /home/ale/biodynamo-v1.05.125/include /home/ale/biodynamo-v1.05.125/include/optim /home/ale/my_tumor/src --headers /home/ale/my_tumor/src/brownian.h /home/ale/my_tumor/src/my_tumor.h
+	/home/ale/biodynamo-v1.05.125/bin/bdm-dictionary --out-of-source --output /home/ale/my_tumor/build/libmy_tumor_bdm_dict.cc --include-dirs /usr/lib/x86_64-linux-gnu/openmpi/include /usr/lib/x86_64-linux-gnu/openmpi/include/openmpi /usr/include /home/ale/biodynamo-v1.05.125/third_party/root/include /home/ale/my_tumor/build/omp /home/ale/biodynamo-v1.05.125/include /home/ale/biodynamo-v1.05.125/include/optim /home/ale/my_tumor/src --headers /home/ale/my_tumor/src/behaviors.h /home/ale/my_tumor/src/brownian.h /home/ale/my_tumor/src/my_cell.h /home/ale/my_tumor/src/my_diffusion_grid.h /home/ale/my_tumor/src/my_tumor.h /home/ale/my_tumor/src/substances.h
 
 CMakeFiles/my_tumor.dir/src/my_tumor.cc.o: CMakeFiles/my_tumor.dir/flags.make
 CMakeFiles/my_tumor.dir/src/my_tumor.cc.o: ../src/my_tumor.cc
