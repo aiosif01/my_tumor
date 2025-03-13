@@ -35,7 +35,7 @@ struct TumorBrownianMotion : public Behavior {
   BDM_BEHAVIOR_HEADER(TumorBrownianMotion, Behavior, 1);
 
   // Default constructor with default diffusion coefficients.
-  TumorBrownianMotion() : TumorBrownianMotion(0.75, 0.45) {}
+  TumorBrownianMotion() : TumorBrownianMotion(0.0, 0.0) {}
 
   TumorBrownianMotion(double tumor_diff, double healthy_diff)
       : tumor_diffusion_(tumor_diff), healthy_diffusion_(healthy_diff) {

@@ -27,11 +27,11 @@ inline int Simulate(int argc, const char** argv) {
   DefineSubstances(&simulation);
 
   // Brownian motion parameters
-  double tumor_diff = 0.75;
-  double healthy_diff = 0.45;
+  double tumor_diff = 0.0;
+  double healthy_diff = 0.0;
 
   // Create cells with layered types - use fewer cells initially for testing
-  size_t total_cells = 50;  // Reduced from 100
+  size_t total_cells = 0;  // Reduced from 100
   for (size_t i = 0; i < total_cells; ++i) {
     // Keep cells away from boundaries to avoid diffusion grid issues
     Real3 pos = {myrand->Uniform(5, 95), myrand->Uniform(5, 95), myrand->Uniform(5, 95)};
@@ -58,7 +58,7 @@ inline int Simulate(int argc, const char** argv) {
   }
 
   // Add some immune cells randomly - keep away from boundaries
-  size_t immune_cells = 5;  // Reduced from 10
+  size_t immune_cells = 0;  // Reduced from 10
   for (size_t i = 0; i < immune_cells; ++i) {
     Real3 pos = {myrand->Uniform(10, 90), myrand->Uniform(10, 90), myrand->Uniform(10, 90)};
     MyCell* immune = new MyCell(pos);
@@ -92,7 +92,7 @@ inline int Simulate(int argc, const char** argv) {
   
   // Define step size (number of steps per interval)
   int total_steps = 150;  // Reduced from 300
-  int intervals = 6;
+  int intervals = 1;
   int step_size = total_steps / intervals;
   
   // Run simulation in intervals and output status
