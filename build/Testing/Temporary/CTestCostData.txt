@@ -1,3 +1,0 @@
-UtilTest.NumberTest 1 0.029273
-AgentTest.AddAgentsToSimulation 1 7.29717
----

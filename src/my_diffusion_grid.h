@@ -6,47 +6,32 @@
 namespace bdm {
 namespace my_tumor {
 
-inline void DefineSubstances(Simulation* simulation) {
-  // Initialize with a higher resolution (20 instead of 10) for better coverage
-  ModelInitializer::DefineSubstance(0, "TGF-beta", 0.1, 0.01, 20);
-  ModelInitializer::DefineSubstance(1, "MMPs", 0.15, 0.02, 20);
+// We only have one substance now: RONS
+inline constexpr int kRONSId = 0;
+
+// 1) Define the diffusion grid for RONS
+inline void DefineSubstances(Simulation* sim) {
+  // diffusion=0.5, decay=0.1, resolution=20
+  ModelInitializer::DefineSubstance(
+      kRONSId, "RONS",
+      /*diffusion=*/0.5,
+      /*decay=*/0.1,
+      /*resolution=*/20);
 }
 
-// Helper functions with position bounds checking
-inline void IncreaseConcentrationAt(const std::string& substance_name, const Real3& position, real_t value) {
-  auto* rm = Simulation::GetActive()->GetResourceManager();
-  auto* grid = rm->GetDiffusionGrid(substance_name);
-  if (grid) {
-    // Check if position is within simulation bounds
-    auto* param = Simulation::GetActive()->GetParam();
-    Real3 clamped_pos = position;
-    for (int i = 0; i < 3; i++) {
-      clamped_pos[i] = std::clamp(position[i], 
-                                 param->min_bound + 1.0, 
-                                 param->max_bound - 1.0);
-    }
-    
-    // Now safely modify the concentration
-    grid->ChangeConcentrationBy(clamped_pos, value);
-  }
-}
+// 2) No need to manually seed via InitializeSubstance if we're using
+//    a Dirichlet boundary that constantly holds the face at 1.0.
 
-inline real_t GetConcentrationAt(const std::string& substance_name, const Real3& position) {
-  auto* rm = Simulation::GetActive()->GetResourceManager();
-  auto* grid = rm->GetDiffusionGrid(substance_name);
-  if (grid) {
-    // Check if position is within simulation bounds
-    auto* param = Simulation::GetActive()->GetParam();
-    Real3 clamped_pos = position;
-    for (int i = 0; i < 3; i++) {
-      clamped_pos[i] = std::clamp(position[i], 
-                                 param->min_bound + 1.0, 
-                                 param->max_bound - 1.0);
-    }
-    
-    return grid->GetValue(clamped_pos);
-  }
-  return 0.0;
+// 3) Enforce Dirichlet boundary (constant =1.0) on *all* domain faces.
+//    This is equivalent to “injection” on the boundaries every step.
+//    If you need only X‐min, see note below.
+inline void AddRONSBoundaryConditions() {
+  // This tells the diffusion solver to hold RONS=1.0 at every
+  // boundary face at every timestep.
+  ModelInitializer::AddBoundaryConditions(
+      kRONSId,
+      BoundaryConditionType::kDirichlet,
+      std::make_unique<ConstantBoundaryCondition>(1.0));
 }
 
 }  // namespace my_tumor
